@@ -1,0 +1,81 @@
+{
+  "sources": [
+    {
+      "id": "fitgirl",
+      "name": "FitGirl Repacks",
+      "shortName": "FR",
+      "filename": "FitGirl Repack",
+      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"]
+    },
+    {
+      "id": "dodi",
+      "name": "DODI Repacks",
+      "shortName": "DR",
+      "filename": "DODI Repack",
+      "description": "Repacks de jogos de alta qualidade com foco em compressão e confiabilidade. Conhecido por Repacks de instalação rápida e segura, com um launcher com design peculiar.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"]
+    },
+    {
+      "id": "byxatab",
+      "name": "ByXATAB",
+      "shortName": "XATAB",
+      "filename": "ByXATAB",
+      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"]
+    },
+    {
+      "id": "onlinefix",
+      "name": "OnlineFixMe",
+      "shortName": "OFME",
+      "filename": "OnlineFixMe",
+      "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"]
+    },
+    {
+      "id": "gog",
+      "name": "Free PC GOG Games",
+      "shortName": "FPGG",
+      "filename": "FreePCGOGGames",
+      "description": "Jogos sem DRM da plataforma GOG, preservados com todo o conteúdo bônus. Foco na qualidade e segurança.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"]
+    },
+    {
+      "id": "ecologica",
+      "name": "Ecológica Verde",
+      "shortName": "EV",
+      "filename": "Ecológica Verde",
+      "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
+      "status": "verified",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"]
+    }
+  ],
+  "stats": {
+    "totalSources": 6,
+    "totalGames": 0,
+    "lastUpdated": "2024-01-15"
+  }
+}
