@@ -223,23 +223,22 @@ function setupNavigation() {
             const filtersSidebar = document.getElementById('filtersSidebar');
             
             if (section === 'sources') {
-                // Mostra filtros com animação
+                // Mostra filtros com animação suave
                 filtersSidebar.classList.remove('hidden');
-                filtersSidebar.style.opacity = '0';
-                filtersSidebar.style.transform = 'translateX(20px)';
                 
-                setTimeout(() => {
-                    filtersSidebar.style.opacity = '1';
-                    filtersSidebar.style.transform = 'translateX(0)';
-                }, 10);
+                // Força reflow para animação funcionar
+                void filtersSidebar.offsetWidth;
+                
+                filtersSidebar.style.opacity = '1';
+                filtersSidebar.style.transform = 'translateX(0)';
             } else {
-                // Esconde filtros com animação
+                // Esconde filtros com animação para a esquerda
                 filtersSidebar.style.opacity = '0';
-                filtersSidebar.style.transform = 'translateX(20px)';
+                filtersSidebar.style.transform = 'translateX(100%)';
                 
                 setTimeout(() => {
                     filtersSidebar.classList.add('hidden');
-                }, 300);
+                }, 400);
             }
             
             state.currentSection = section;
