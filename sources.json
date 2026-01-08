@@ -3,12 +3,12 @@
     {
       "id": "fitgirl",
       "name": "FitGirl Repacks",
-      "shortName": "FR",
+      "shortName": "<b>[Donate link]</b>(https://fitgirl-repacks.site/donations/)",
       "filename": "FitGirl Repack",
-      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
+      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão dos arquivos e total confiabilidade.",
       "status": "trusted",
       "gameCount": 0,
-      "lastUpdated": "",
+      "lastUpdated": "08/01/2026",
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"]
     },
