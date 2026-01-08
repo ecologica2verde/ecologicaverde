@@ -10,7 +10,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"]
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
+      "pros": [
+        "Compressão excelente (até 90% menor)",
+        "Verificação de arquivos integrada",
+        "Atualizações frequentes",
+        "Comunidade ativa e confiável"
+      ],
+      "cons": [
+        "Instalação pode ser lenta",
+        "Alta carga no CPU durante instalação",
+        "Alguns antivírus dão falso positivo"
+      ]
     },
     {
       "id": "dodi",
@@ -22,7 +33,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"]
+      "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
+      "pros": [
+        "Instalação mais rápida que FitGirl",
+        "Launcher personalizado com opções",
+        "Suporte a múltiplos idiomas",
+        "Verificação MD5 para segurança"
+      ],
+      "cons": [
+        "Compressão menor que FitGirl",
+        "Design do launcher polêmico",
+        "Menor variedade de jogos"
+      ]
     },
     {
       "id": "byxatab",
@@ -34,7 +56,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"]
+      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "pros": [
+        "Instalação extremamente rápida",
+        "Foco em jogos russos/ingleses",
+        "Interface simples e direta",
+        "Atualizações frequentes"
+      ],
+      "cons": [
+        "Site em russo (requer tradução)",
+        "Foco limitado a certas regiões",
+        "Documentação em russo"
+      ]
     },
     {
       "id": "onlinefix",
@@ -46,7 +79,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"]
+      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
+      "pros": [
+        "Suporte a multiplayer online",
+        "Funciona em servidores oficiais",
+        "Atualizações rápidas para patches",
+        "Comunidade ativa no Discord"
+      ],
+      "cons": [
+        "Requer configuração adicional",
+        "Risco de banimento (embora raro)",
+        "Alguns jogos requerem Steam aberto"
+      ]
     },
     {
       "id": "gog",
@@ -58,7 +102,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"]
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "pros": [
+        "Jogos sem DRM (execução direta)",
+        "Conteúdo bônus preservado",
+        "Instalação simples (setup ou arquivos)",
+        "Compatibilidade garantida"
+      ],
+      "cons": [
+        "Tamanhos maiores (sem compressão)",
+        "Atualizações manuais necessárias",
+        "Catálogo limitado a jogos GOG"
+      ]
     },
     {
       "id": "ecologica",
@@ -70,7 +125,18 @@
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"]
+      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
+      "pros": [
+        "Curadoria manual (sem web scraping)",
+        "Fontes verificadas e testadas",
+        "Foco em compatibilidade",
+        "Projeto sem fins lucrativos"
+      ],
+      "cons": [
+        "Catálogo menor (curadoria manual)",
+        "Atualizações menos frequentes",
+        "Depende de fontes externas"
+      ]
     }
   ],
   "stats": {

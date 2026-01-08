@@ -186,7 +186,9 @@ async function initializeApp() {
             type: CONFIG.sourceTypes[source.id]?.type || 'other',
             icon: CONFIG.sourceTypes[source.id]?.icon || 'fa-gamepad',
             stars: CONFIG.recommendations[source.id] || 0,
-            url: CONFIG.sourceUrls[source.id] || '#'
+            url: CONFIG.sourceUrls[source.id] || '#',
+            pros: source.pros || [],
+            cons: source.cons || []
         }));
         
         state.filteredSources = [...state.sources];
@@ -405,6 +407,33 @@ function renderSources() {
             </div>
             
             <p class="card-description">${source.description}</p>
+            
+            <div class="card-pros-cons">
+                <div class="pros-cons-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Análise da Fonte</h4>
+                </div>
+                <div class="pros-cons-grid">
+                    <div class="pros-section">
+                        <div class="pros-title">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Prós</span>
+                        </div>
+                        <ul class="pros-list">
+                            ${source.pros.map(pro => `<li>${pro}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="cons-section">
+                        <div class="cons-title">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Contras</span>
+                        </div>
+                        <ul class="cons-list">
+                            ${source.cons.map(con => `<li>${con}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
             <div class="card-meta">
                 <div class="source-status">
