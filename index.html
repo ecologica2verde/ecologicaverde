@@ -40,19 +40,19 @@
                     <div class="nav-section">
                         <h3 class="nav-title">Navegação</h3>
                         <ul class="nav-list">
-                            <li class="nav-item active">
+                            <li class="nav-item active" data-section="sources">
                                 <a href="#" class="nav-link" data-section="sources">
                                     <span class="nav-icon">📚</span>
                                     <span class="nav-text">Fontes</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" data-section="guides">
                                 <a href="#" class="nav-link" data-section="guides">
                                     <span class="nav-icon">📖</span>
                                     <span class="nav-text">Guias</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" data-section="utilities">
                                 <a href="#" class="nav-link" data-section="utilities">
                                     <span class="nav-icon">🛠️</span>
                                     <span class="nav-text">Utilitários</span>
@@ -60,33 +60,19 @@
                             </li>
                         </ul>
                     </div>
-                    
-                    <div class="nav-section">
-                        <h3 class="nav-title">Redes Sociais</h3>
-                        <div class="social-links">
-                            <a href="https://x.com/Ecologica2Verde" class="social-link" target="_blank" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://www.instagram.com/ecologicaverde/" class="social-link" target="_blank" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://discord.com/invite/ZPbzpcPwFf" class="social-link" target="_blank" title="Discord">
-                                <i class="fab fa-discord"></i>
-                            </a>
-                        </div>
-                    </div>
                 </nav>
                 
                 <div class="sidebar-footer">
-                    <div class="footer-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">6</span>
-                            <span class="stat-label">Fontes</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Ativas</span>
-                        </div>
+                    <div class="social-links-footer">
+                        <a href="https://x.com/Ecologica2Verde" class="social-link-footer" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ecologicaverde/" class="social-link-footer" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://discord.com/invite/ZPbzpcPwFf" class="social-link-footer" target="_blank" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
                     </div>
                     <div class="copyright">
                         <span>© 2024 Ecológica Verde</span>
@@ -147,7 +133,7 @@
         </main>
 
         <!-- Right Sidebar - Filters -->
-        <aside class="sidebar right-sidebar">
+        <aside class="sidebar right-sidebar filters-sidebar" id="filtersSidebar">
             <div class="sidebar-content">
                 <div class="sidebar-header">
                     <h3 class="filters-title">Filtros</h3>

@@ -198,24 +198,49 @@ async function initializeApp() {
     }
 }
 
-// ===== NAVEGAÇÃO =====
+// ===== NAVEGAÇÃO COM ANIMAÇÃO DOS FILTROS =====
 function setupNavigation() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const section = e.currentTarget.dataset.section;
             
+            // Atualiza navegação ativa
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             
             e.currentTarget.parentElement.classList.add('active');
             
+            // Atualiza seção de conteúdo
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
             
             document.getElementById(`${section}-section`).classList.add('active');
+            
+            // Controla visibilidade da sidebar de filtros
+            const filtersSidebar = document.getElementById('filtersSidebar');
+            
+            if (section === 'sources') {
+                // Mostra filtros com animação
+                filtersSidebar.classList.remove('hidden');
+                filtersSidebar.style.opacity = '0';
+                filtersSidebar.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {
+                    filtersSidebar.style.opacity = '1';
+                    filtersSidebar.style.transform = 'translateX(0)';
+                }, 10);
+            } else {
+                // Esconde filtros com animação
+                filtersSidebar.style.opacity = '0';
+                filtersSidebar.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {
+                    filtersSidebar.classList.add('hidden');
+                }, 300);
+            }
             
             state.currentSection = section;
         });
