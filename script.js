@@ -410,4 +410,309 @@ function renderSources() {
                 <div class="source-status">
                     <span class="status-indicator ${CONFIG.statusLabels[source.status]?.class || 'status-trusted'}">
                         <i class="fas ${CONFIG.statusLabels[source.status]?.icon || 'fa-shield-alt'}"></i>
-                        ${CONFIG.statusLabels[source.status]?.label || 'Confiável
+                        ${CONFIG.statusLabels[source.status]?.label || 'Confiável'}
+                    </span>
+                </div>
+                <div class="stars">
+                    ${getStarsHTML(source.stars)}
+                </div>
+            </div>
+            
+            <div class="card-actions">
+                <button class="btn btn-primary" onclick="handleAccessSource('${source.id}')">
+                    <i class="fas fa-external-link-alt"></i>
+                    Acessar Catálogo
+                </button>
+                <button class="btn btn-secondary" onclick="showSourceDetails('${source.id}')" title="Detalhes">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+            </div>
+        </article>
+    `).join('');
+    
+    // Converte links de markdown para HTML nos subtítulos
+    convertMarkdownLinks();
+    setupCardEffects();
+}
+
+function convertMarkdownLinks() {
+    document.querySelectorAll('.card-subtitle').forEach(subtitle => {
+        const html = subtitle.innerHTML;
+        // Converte [texto](url) para <a href="url">texto</a>
+        const converted = html.replace(
+            /\[([^\]]+)\]\(([^)]+)\)/g, 
+            '<a href="$2" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">$1</a>'
+        );
+        subtitle.innerHTML = converted;
+    });
+}
+
+function getStarsHTML(rating) {
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars += '<i class="fas fa-star star"></i>';
+        } else {
+            stars += '<i class="far fa-star star"></i>';
+        }
+    }
+    return stars;
+}
+
+// ===== LOAD GUIDES =====
+function loadGuides() {
+    const grid = document.getElementById('guidesGrid');
+    
+    if (CONFIG.guides.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-book"></i>
+                <h3>Nenhum guia disponível</h3>
+                <p>Os guias serão adicionados em breve</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = CONFIG.guides.map(guide => `
+        <article class="source-card" data-id="${guide.id}">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="guide-emoji">${guide.emoji}</span>
+                </div>
+                <div class="card-title">
+                    <h3>${guide.title}</h3>
+                </div>
+            </div>
+            
+            <p class="card-description">${guide.description}</p>
+            
+            <div class="card-actions">
+                <a href="${guide.url}" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    Acessar Guia
+                </a>
+            </div>
+        </article>
+    `).join('');
+    
+    setupCardEffects();
+}
+
+// ===== LOAD UTILITIES =====
+function loadUtilities() {
+    const grid = document.getElementById('utilitiesGrid');
+    
+    if (CONFIG.utilities.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-tools"></i>
+                <h3>Nenhum utilitário disponível</h3>
+                <p>Os utilitários serão adicionados em breve</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = CONFIG.utilities.map(utility => `
+        <article class="source-card" data-id="${utility.id}">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="utility-emoji">${utility.emoji}</span>
+                </div>
+                <div class="card-title">
+                    <h3>${utility.title}</h3>
+                </div>
+            </div>
+            
+            <p class="card-description">${utility.description}</p>
+            
+            <div class="card-actions">
+                <a href="${utility.url}" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    Acessar Utilitário
+                </a>
+            </div>
+        </article>
+    `).join('');
+    
+    setupCardEffects();
+}
+
+// ===== CARD EFFECTS =====
+function setupCardEffects() {
+    const cards = document.querySelectorAll('.source-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+            card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+        });
+    });
+}
+
+// ===== HANDLERS =====
+function handleAccessSource(sourceId) {
+    const source = state.sources.find(s => s.id === sourceId);
+    
+    if (source.status === 'risk') {
+        showNotification('⚠️ Aviso', 'Esta fonte é classificada como "Com Risco". Proceda com cautela.', 'warning');
+    }
+    
+    showNotification(
+        '🌿 Redirecionando...',
+        `Abrindo catálogo ${source.name}...`,
+        'info'
+    );
+    
+    console.log(`Acessando: ${source.name}`);
+    console.log(`Arquivo CSV: ${source.filename}.csv`);
+}
+
+function showSourceDetails(sourceId) {
+    const source = state.sources.find(s => s.id === sourceId);
+    const statusInfo = CONFIG.statusLabels[source.status];
+    
+    const modalHTML = `
+        <div class="modal-overlay" id="sourceModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>${source.name}</h2>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Status</label>
+                            <span class="status-indicator ${statusInfo.class}">
+                                <i class="fas ${statusInfo.icon}"></i>
+                                ${statusInfo.label}
+                            </span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <label>Arquivo CSV</label>
+                            <code>${source.filename}.csv</code>
+                        </div>
+                        
+                        <div class="info-item">
+                            <label>Recomendação</label>
+                            <div class="stars">
+                                ${getStarsHTML(source.stars)}
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <label>Descrição</label>
+                            <p>${source.description}</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <label>Colunas do CSV</label>
+                            <div class="csv-columns">
+                                ${source.csvColumns.map(col => `<span class="column-tag">${col}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Close modal when clicking outside
+    document.getElementById('sourceModal').addEventListener('click', (e) => {
+        if (e.target.id === 'sourceModal') {
+            closeModal();
+        }
+    });
+}
+
+function closeModal() {
+    const modal = document.getElementById('sourceModal');
+    if (modal) modal.remove();
+}
+
+// ===== UTILITIES =====
+function showError(message, section) {
+    const grid = document.getElementById(`${section}-section`).querySelector('.sources-grid');
+    if (grid) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Erro ao Carregar</h3>
+                <p>${message}</p>
+                <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 1rem;">
+                    <i class="fas fa-redo"></i> Tentar Novamente
+                </button>
+            </div>
+        `;
+    }
+}
+
+function showNotification(title, message, type = 'info') {
+    // Remove existing notifications
+    document.querySelectorAll('.notification').forEach(n => n.remove());
+    
+    const icons = {
+        info: 'fa-info-circle',
+        success: 'fa-check-circle',
+        warning: 'fa-exclamation-triangle',
+        error: 'fa-times-circle'
+    };
+    
+    const colors = {
+        info: '#4caf50',
+        success: '#4caf50',
+        warning: '#ff9800',
+        error: '#f44336'
+    };
+    
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #111111;
+        border: 1px solid #1a1a1a;
+        border-radius: 8px;
+        padding: 16px;
+        max-width: 300px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    notification.innerHTML = `
+        <i class="fas ${icons[type]}" style="color: ${colors[type]}; font-size: 16px; margin-top: 2px;"></i>
+        <div>
+            <strong style="font-size: 14px; color: #ffffff; display: block; margin-bottom: 4px;">${title}</strong>
+            <p style="font-size: 13px; color: #b0b0b0; margin: 0;">${message}</p>
+        </div>
+        <button onclick="this.parentElement.remove()" style="background: transparent; border: none; color: #888888; font-size: 18px; cursor: pointer; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: all 0.2s ease;">
+            &times;
+        </button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+}
+
+// ===== GLOBAL FUNCTIONS =====
+window.handleAccessSource = handleAccessSource;
+window.showSourceDetails = showSourceDetails;
+window.closeModal = closeModal;
