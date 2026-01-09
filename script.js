@@ -53,7 +53,7 @@ const CONFIG = {
         {
             id: 'microsoft-guide',
             emoji: '📗',
-            icon: 'fa-windows',
+            icon: 'fa-desktop',
             title: 'GUIA: Pacote Microsoft Office e Ativador do Windows',
             description: 'Instalação e ativação do Microsoft Office e Windows.',
             url: 'https://rentry.co/ATIVADOR-MICROSOFT-OFFICE-E-WINDOWS-ECOLOGICA-VERDE'
@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadUtilities();
     setupCardEffects();
     setupComparison();
+    updateScrollbarVisibility(); // Inicializa visibilidade do scrollbar
 });
 
 async function initializeApp() {
@@ -201,14 +202,15 @@ async function initializeApp() {
         const response = await fetch('sources.json');
         const data = await response.json();
         
+        // Limitar para 3 pros e 3 contras cada fonte
         state.sources = data.sources.map(source => ({
             ...source,
             type: CONFIG.sourceTypes[source.id]?.type || 'other',
             icon: CONFIG.sourceTypes[source.id]?.icon || 'fa-gamepad',
             stars: CONFIG.recommendations[source.id] || 0,
             url: CONFIG.sourceUrls[source.id] || '#',
-            pros: source.pros || [],
-            cons: source.cons || []
+            pros: (source.pros || []).slice(0, 3), // Apenas 3 pros
+            cons: (source.cons || []).slice(0, 3)  // Apenas 3 contras
         }));
         
         state.filteredSources = [...state.sources];
@@ -277,7 +279,24 @@ function setupNavigation() {
             
             state.currentSection = section;
             updateComparisonInfo();
+            updateScrollbarVisibility(); // Atualiza visibilidade do scrollbar ao mudar seção
         });
+    });
+}
+
+// ===== ATUALIZAR VISIBILIDADE DO SCROLLBAR =====
+function updateScrollbarVisibility() {
+    const sections = ['sources', 'guides', 'utilities', 'dmca'];
+    
+    sections.forEach(section => {
+        const sectionEl = document.getElementById(`${section}-section`);
+        if (sectionEl) {
+            if (section === 'sources') {
+                sectionEl.classList.remove('no-scrollbar');
+            } else {
+                sectionEl.classList.add('no-scrollbar');
+            }
+        }
     });
 }
 
@@ -755,7 +774,7 @@ function loadGuides() {
     }
     
     grid.innerHTML = CONFIG.guides.map(guide => `
-        <article class="source-card" data-id="${guide.id}">
+        <article class="guide-card" data-id="${guide.id}">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas ${guide.icon}"></i>
@@ -796,7 +815,7 @@ function loadUtilities() {
     }
     
     grid.innerHTML = CONFIG.utilities.map(utility => `
-        <article class="source-card" data-id="${utility.id}">
+        <article class="utility-card" data-id="${utility.id}">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas ${utility.icon}"></i>
@@ -822,7 +841,7 @@ function loadUtilities() {
 
 // ===== CARD EFFECTS =====
 function setupCardEffects() {
-    const cards = document.querySelectorAll('.source-card');
+    const cards = document.querySelectorAll('.source-card, .guide-card, .utility-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
