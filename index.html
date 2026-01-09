@@ -31,7 +31,7 @@
                         <img src="assets/logos/logo.png" alt="Ecológica Verde Logo" class="logo-img">
                         <div class="logo-text">
                             <h1>Ecológica Verde</h1>
-                            <p class="tagline">GameSource Index</p>
+                            <p class="tagline">Indexador de Fontes</p>
                         </div>
                     </div>
                 </div>
@@ -104,6 +104,7 @@
                         <h2 class="content-title">Catálogos Disponíveis</h2>
                         <div class="content-stats">
                             <span class="content-stat">6 fontes indexadas</span>
+                            <span class="comparison-info" id="comparisonInfo"></span>
                         </div>
                     </div>
                     
@@ -112,6 +113,26 @@
                         <div class="loading-state">
                             <div class="loading-spinner"></div>
                             <p>Carregando fontes...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Comparison Modal -->
+                    <div class="comparison-modal" id="comparisonModal">
+                        <div class="comparison-header">
+                            <h3><i class="fas fa-balance-scale"></i> Comparação de Fontes</h3>
+                            <button class="comparison-close" id="closeComparison">&times;</button>
+                        </div>
+                        <div class="comparison-content" id="comparisonContent">
+                            <div class="comparison-empty">
+                                <i class="fas fa-balance-scale"></i>
+                                <p>Selecione 2 fontes para comparar</p>
+                                <small>Clique no botão "Comparar" nas fontes que deseja comparar</small>
+                            </div>
+                        </div>
+                        <div class="comparison-actions">
+                            <button class="btn btn-secondary" id="clearComparison">
+                                <i class="fas fa-trash"></i> Limpar Comparação
+                            </button>
                         </div>
                     </div>
                 </section>

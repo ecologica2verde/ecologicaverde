@@ -163,7 +163,9 @@ let state = {
         stars: 'all',
         sort: 'name'
     },
-    currentSection: 'sources'
+    currentSection: 'sources',
+    comparingSources: [],
+    filtersInitialized: false
 };
 
 // ===== INICIALIZAÇÃO =====
@@ -174,6 +176,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadGuides();
     loadUtilities();
     setupCardEffects();
+    setupComparison();
+    ensureFiltersWork();
 });
 
 async function initializeApp() {
@@ -233,6 +237,11 @@ function setupNavigation() {
                 
                 filtersSidebar.style.opacity = '1';
                 filtersSidebar.style.transform = 'translateX(0)';
+                
+                // Garante que os filtros funcionem
+                setTimeout(() => {
+                    ensureFiltersWork();
+                }, 100);
             } else {
                 // Esconde filtros com animação para a esquerda
                 filtersSidebar.style.opacity = '0';
@@ -244,8 +253,28 @@ function setupNavigation() {
             }
             
             state.currentSection = section;
+            updateComparisonInfo();
         });
     });
+}
+
+// ===== GARANTIR QUE OS FILTROS FUNCIONEM =====
+function ensureFiltersWork() {
+    if (!state.filtersInitialized) {
+        setupEventListeners();
+        state.filtersInitialized = true;
+    }
+    
+    // Re-aplica os listeners nos botões de filtro
+    document.querySelectorAll('.filter-option').forEach(button => {
+        button.replaceWith(button.cloneNode(true));
+    });
+    
+    // Reconfigura os event listeners
+    setupEventListeners();
+    
+    // Re-aplica os filtros atuais
+    applyFilters();
 }
 
 // ===== FILTROS =====
@@ -379,6 +408,180 @@ function resetFilters() {
     applyFilters();
 }
 
+// ===== COMPARAÇÃO DE FONTES =====
+function setupComparison() {
+    // Botão para fechar comparação
+    document.getElementById('closeComparison').addEventListener('click', () => {
+        document.getElementById('comparisonModal').classList.remove('visible');
+    });
+    
+    // Botão para limpar comparação
+    document.getElementById('clearComparison').addEventListener('click', clearComparison);
+    
+    // Fechar modal ao clicar fora (se necessário)
+    document.addEventListener('click', (e) => {
+        const modal = document.getElementById('comparisonModal');
+        if (e.target === modal) {
+            modal.classList.remove('visible');
+        }
+    });
+}
+
+function toggleComparison(sourceId) {
+    const source = state.sources.find(s => s.id === sourceId);
+    const index = state.comparingSources.findIndex(s => s.id === sourceId);
+    
+    if (index === -1) {
+        // Adicionar à comparação (máximo 2 fontes)
+        if (state.comparingSources.length >= 2) {
+            showNotification('⚠️ Limite Atingido', 'Você só pode comparar 2 fontes por vez.', 'warning');
+            return;
+        }
+        state.comparingSources.push(source);
+        showNotification('✓ Adicionado', `${source.name} adicionado à comparação`, 'success');
+    } else {
+        // Remover da comparação
+        state.comparingSources.splice(index, 1);
+        showNotification('ℹ️ Removido', `${source.name} removido da comparação`, 'info');
+    }
+    
+    // Atualizar interface
+    updateComparisonUI();
+    updateComparisonInfo();
+    renderSources();
+}
+
+function clearComparison() {
+    state.comparingSources = [];
+    updateComparisonUI();
+    updateComparisonInfo();
+    renderSources();
+    showNotification('ℹ️ Comparação Limpa', 'Todas as fontes foram removidas da comparação', 'info');
+}
+
+function updateComparisonUI() {
+    const comparisonContent = document.getElementById('comparisonContent');
+    const comparisonModal = document.getElementById('comparisonModal');
+    
+    if (state.comparingSources.length === 0) {
+        comparisonContent.innerHTML = `
+            <div class="comparison-empty">
+                <i class="fas fa-balance-scale"></i>
+                <p>Selecione 2 fontes para comparar</p>
+                <small>Clique no botão "Comparar" nas fontes que deseja comparar</small>
+            </div>
+        `;
+        comparisonModal.classList.remove('visible');
+    } else if (state.comparingSources.length === 1) {
+        comparisonContent.innerHTML = `
+            <div class="comparison-empty">
+                <i class="fas fa-balance-scale"></i>
+                <p>Selecione mais 1 fonte para comparar</p>
+                <small>Você precisa selecionar 2 fontes para realizar a comparação</small>
+            </div>
+        `;
+        comparisonModal.classList.add('visible');
+    } else {
+        // Mostrar comparação de 2 fontes
+        const [source1, source2] = state.comparingSources;
+        
+        comparisonContent.innerHTML = `
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header">
+                        <h4>${source1.name}</h4>
+                        <button class="remove-comparison" onclick="toggleComparison('${source1.id}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="comparison-details">
+                        <div class="comparison-detail">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value ${CONFIG.statusLabels[source1.status]?.class || 'status-trusted'}">
+                                ${CONFIG.statusLabels[source1.status]?.label || 'Confiável'}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Recomendação</span>
+                            <span class="detail-value">
+                                ${getStarsHTML(source1.stars)}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">
+                                ${source1.type === 'repacks' ? 'Repacks' : 
+                                  source1.type === 'gog' ? 'GOG Games' :
+                                  source1.type === 'online' ? 'Multiplayer Online' :
+                                  source1.type === 'folder' ? 'Game Folder' : 'Outro'}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Prós</span>
+                            <span class="detail-value">${source1.pros.length}</span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Contras</span>
+                            <span class="detail-value">${source1.cons.length}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-card-header">
+                        <h4>${source2.name}</h4>
+                        <button class="remove-comparison" onclick="toggleComparison('${source2.id}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="comparison-details">
+                        <div class="comparison-detail">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value ${CONFIG.statusLabels[source2.status]?.class || 'status-trusted'}">
+                                ${CONFIG.statusLabels[source2.status]?.label || 'Confiável'}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Recomendação</span>
+                            <span class="detail-value">
+                                ${getStarsHTML(source2.stars)}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">
+                                ${source2.type === 'repacks' ? 'Repacks' : 
+                                  source2.type === 'gog' ? 'GOG Games' :
+                                  source2.type === 'online' ? 'Multiplayer Online' :
+                                  source2.type === 'folder' ? 'Game Folder' : 'Outro'}
+                            </span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Prós</span>
+                            <span class="detail-value">${source2.pros.length}</span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="detail-label">Contras</span>
+                            <span class="detail-value">${source2.cons.length}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        comparisonModal.classList.add('visible');
+    }
+}
+
+function updateComparisonInfo() {
+    const comparisonInfo = document.getElementById('comparisonInfo');
+    if (state.comparingSources.length > 0) {
+        comparisonInfo.textContent = `${state.comparingSources.length}/2 fontes selecionadas para comparação`;
+        comparisonInfo.classList.add('visible');
+    } else {
+        comparisonInfo.classList.remove('visible');
+    }
+}
+
 // ===== RENDERIZAÇÃO =====
 function renderSources() {
     const grid = document.getElementById('sourcesGrid');
@@ -394,8 +597,11 @@ function renderSources() {
         return;
     }
     
-    grid.innerHTML = state.filteredSources.map(source => `
-        <article class="source-card" data-id="${source.id}">
+    grid.innerHTML = state.filteredSources.map(source => {
+        const isComparing = state.comparingSources.some(s => s.id === source.id);
+        
+        return `
+        <article class="source-card ${isComparing ? 'comparing' : ''}" data-id="${source.id}">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas ${source.icon}"></i>
@@ -452,12 +658,13 @@ function renderSources() {
                     <i class="fas fa-external-link-alt"></i>
                     Acessar Catálogo
                 </button>
-                <button class="btn btn-secondary" onclick="showSourceDetails('${source.id}')" title="Detalhes">
-                    <i class="fas fa-info-circle"></i>
+                <button class="btn btn-comparison ${isComparing ? 'comparing' : ''}" onclick="toggleComparison('${source.id}')">
+                    <i class="fas ${isComparing ? 'fa-check' : 'fa-balance-scale'}"></i>
+                    ${isComparing ? 'Comparando' : 'Comparar'}
                 </button>
             </div>
         </article>
-    `).join('');
+    `}).join('');
     
     // Converte links de markdown para HTML nos subtítulos
     convertMarkdownLinks();
@@ -517,7 +724,7 @@ function loadGuides() {
             <p class="card-description">${guide.description}</p>
             
             <div class="card-actions">
-                <a href="${guide.url}" class="btn btn-primary" target="_blank">
+                <a href="${guide.url}" class="btn btn-primary btn-guide" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                     Acessar Guia
                 </a>
@@ -557,7 +764,7 @@ function loadUtilities() {
             <p class="card-description">${utility.description}</p>
             
             <div class="card-actions">
-                <a href="${utility.url}" class="btn btn-primary" target="_blank">
+                <a href="${utility.url}" class="btn btn-primary btn-utility" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                     Acessar Utilitário
                 </a>
@@ -745,3 +952,5 @@ function showNotification(title, message, type = 'info') {
 window.handleAccessSource = handleAccessSource;
 window.showSourceDetails = showSourceDetails;
 window.closeModal = closeModal;
+window.toggleComparison = toggleComparison;
+window.clearComparison = clearComparison;
