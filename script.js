@@ -37,6 +37,7 @@ const CONFIG = {
         {
             id: 'all-guides',
             emoji: '📚',
+            icon: 'fa-book',
             title: 'TODOS GUIAS DA ECOLÓGICA VERDE',
             description: 'Acesso completo a todos os guias disponíveis na biblioteca.',
             url: 'https://rentry.co/ECOLOGICA-VERDE-GUIAS'
@@ -44,6 +45,7 @@ const CONFIG = {
         {
             id: 'adobe-guide',
             emoji: '📙',
+            icon: 'fa-paint-brush',
             title: 'GUIA: Adobe Creative Cloud',
             description: 'Guia completo para instalação e ativação do Adobe Creative Cloud.',
             url: 'https://rentry.co/adobe-creative-cloud-ecologica-verde'
@@ -51,6 +53,7 @@ const CONFIG = {
         {
             id: 'microsoft-guide',
             emoji: '📗',
+            icon: 'fa-windows',
             title: 'GUIA: Pacote Microsoft Office e Ativador do Windows',
             description: 'Instalação e ativação do Microsoft Office e Windows.',
             url: 'https://rentry.co/ATIVADOR-MICROSOFT-OFFICE-E-WINDOWS-ECOLOGICA-VERDE'
@@ -58,6 +61,7 @@ const CONFIG = {
         {
             id: 'digimon-guide',
             emoji: '🎮',
+            icon: 'fa-gamepad',
             title: 'GUIA: Digimon Story: Time Stranger',
             description: 'Guia completo para instalação e configuração do jogo.',
             url: 'https://rentry.co/DIGIMON-STORY-TIME-STRANGER-ECOLOGICA-VERDE'
@@ -65,6 +69,7 @@ const CONFIG = {
         {
             id: 'elden-guide',
             emoji: '🎮',
+            icon: 'fa-gamepad',
             title: 'GUIA: ELDEN RING NIGHTREIGN',
             description: 'Instalação e configuração do mod Nightreign para Elden Ring.',
             url: 'https://rentry.co/elden-ring-nightreign-ecologica-verde'
@@ -72,6 +77,7 @@ const CONFIG = {
         {
             id: 'ffxv-guide',
             emoji: '🎮',
+            icon: 'fa-gamepad',
             title: 'GUIA: FINAL FANTASY XV: Windows Edition',
             description: 'Guia completo para instalação e otimização do jogo.',
             url: 'https://rentry.co/FINAL-FANTASY-XV-ECOLOGICA-VERDE'
@@ -79,6 +85,7 @@ const CONFIG = {
         {
             id: 'persona-guide',
             emoji: '🎮',
+            icon: 'fa-gamepad',
             title: 'GUIA: Persona 3 Reload',
             description: 'Instalação e configuração do Persona 3 Reload.',
             url: 'https://rentry.co/PERSONA-3-RELOAD-ECOLOGICA-VERDE'
@@ -86,6 +93,7 @@ const CONFIG = {
         {
             id: 'smt-guide',
             emoji: '🎮',
+            icon: 'fa-gamepad',
             title: 'GUIA: Shin Megami Tensei V: Vengeance',
             description: 'Guia completo para instalação do SMT V: Vengeance.',
             url: 'https://rentry.co/SHIN-MEGAMI-TENSEI-V-VENGEANCE-ECOLOGICA-VERDE'
@@ -93,6 +101,7 @@ const CONFIG = {
         {
             id: 'sites-warning',
             emoji: '⛔',
+            icon: 'fa-exclamation-triangle',
             title: 'SITES: Fontes Externas não recomendadas',
             description: 'Lista de sites problemáticos e fontes não recomendadas.',
             url: 'https://rentry.co/sites-problematicos-ecologica-verde'
@@ -103,6 +112,7 @@ const CONFIG = {
         {
             id: 'fmhy',
             emoji: '➡️',
+            icon: 'fa-external-link-alt',
             title: 'FMHY',
             description: 'Freemediaheckyeah - Recursos gratuitos para mídia e entretenimento.',
             url: 'https://fmhy.net/'
@@ -110,6 +120,7 @@ const CONFIG = {
         {
             id: 'ublock',
             emoji: '🚫',
+            icon: 'fa-shield-alt',
             title: 'uBlock Origin',
             description: 'Extensão de navegador para bloquear anúncios e rastreadores.',
             url: 'https://ublockorigin.com/'
@@ -117,6 +128,7 @@ const CONFIG = {
         {
             id: 'adguard-vpn',
             emoji: '⛔',
+            icon: 'fa-user-shield',
             title: 'AdGuard VPN',
             description: 'VPN gratuita e proxy para navegação segura.',
             url: 'https://chromewebstore.google.com/detail/adguard-vpn-proxy-gratuit/hhdobjgopfphlmjbmnpglhfcgppchgje'
@@ -124,6 +136,7 @@ const CONFIG = {
         {
             id: 'cobalt-tools',
             emoji: '😼',
+            icon: 'fa-tools',
             title: 'Cobalt Tools',
             description: 'Ferramentas para download de mídia de várias plataformas.',
             url: 'https://cobalt.tools/'
@@ -131,6 +144,7 @@ const CONFIG = {
         {
             id: 'rentry',
             emoji: '📚',
+            icon: 'fa-paste',
             title: 'Rentry',
             description: 'Serviço de pastebin simples e rápido para compartilhamento de texto.',
             url: 'https://rentry.co/'
@@ -138,6 +152,7 @@ const CONFIG = {
         {
             id: 'spotify-pc',
             emoji: '🎵',
+            icon: 'fa-music',
             title: 'Spotify-PC',
             description: 'Cliente modificado do Spotify para Windows sem anúncios.',
             url: 'https://github.com/SpotX-Official/SpotX'
@@ -145,6 +160,7 @@ const CONFIG = {
         {
             id: 'temp-email',
             emoji: '✉️',
+            icon: 'fa-envelope',
             title: 'E-mail Temporário',
             description: 'Serviço de e-mail temporário para registros e verificações.',
             url: 'https://adguard.com/pt_br/adguard-temp-mail/overview.html'
@@ -165,7 +181,8 @@ let state = {
     },
     currentSection: 'sources',
     comparingSources: [],
-    filtersInitialized: false
+    filtersInitialized: false,
+    isChangingSection: false
 };
 
 // ===== INICIALIZAÇÃO =====
@@ -177,7 +194,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadUtilities();
     setupCardEffects();
     setupComparison();
-    ensureFiltersWork();
 });
 
 async function initializeApp() {
@@ -209,6 +225,11 @@ function setupNavigation() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            
+            // Prevenir múltiplos cliques rápidos
+            if (state.isChangingSection) return;
+            state.isChangingSection = true;
+            
             const section = e.currentTarget.dataset.section;
             
             // Atualiza navegação ativa
@@ -240,7 +261,8 @@ function setupNavigation() {
                 
                 // Garante que os filtros funcionem
                 setTimeout(() => {
-                    ensureFiltersWork();
+                    setupFilterListeners();
+                    state.isChangingSection = false;
                 }, 100);
             } else {
                 // Esconde filtros com animação para a esquerda
@@ -249,7 +271,8 @@ function setupNavigation() {
                 
                 setTimeout(() => {
                     filtersSidebar.classList.add('hidden');
-                }, 400);
+                    state.isChangingSection = false;
+                }, 300);
             }
             
             state.currentSection = section;
@@ -258,27 +281,15 @@ function setupNavigation() {
     });
 }
 
-// ===== GARANTIR QUE OS FILTROS FUNCIONEM =====
-function ensureFiltersWork() {
-    if (!state.filtersInitialized) {
-        setupEventListeners();
-        state.filtersInitialized = true;
-    }
-    
-    // Re-aplica os listeners nos botões de filtro
-    document.querySelectorAll('.filter-option').forEach(button => {
-        button.replaceWith(button.cloneNode(true));
+// ===== SETUP FILTER LISTENERS (Função isolada para prevenir conflitos) =====
+function setupFilterListeners() {
+    // Remove todos os listeners existentes primeiro
+    const filterOptions = document.querySelectorAll('.filter-option');
+    filterOptions.forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
     });
-    
-    // Reconfigura os event listeners
-    setupEventListeners();
-    
-    // Re-aplica os filtros atuais
-    applyFilters();
-}
 
-// ===== FILTROS =====
-function setupEventListeners() {
     // Filtros de ordenação
     document.querySelectorAll('[data-sort]').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -344,7 +355,22 @@ function setupEventListeners() {
     });
     
     // Reset filters
-    document.getElementById('resetFilters').addEventListener('click', resetFilters);
+    const resetBtn = document.getElementById('resetFilters');
+    const newResetBtn = resetBtn.cloneNode(true);
+    resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
+    
+    newResetBtn.addEventListener('click', resetFilters);
+}
+
+// ===== SETUP EVENT LISTENERS (Apenas para elementos não-filtro) =====
+function setupEventListeners() {
+    // Setup dos filtros separadamente
+    if (state.currentSection === 'sources') {
+        setupFilterListeners();
+    }
+    
+    // Setup do comparison
+    setupComparison();
 }
 
 function applyFilters() {
@@ -411,12 +437,24 @@ function resetFilters() {
 // ===== COMPARAÇÃO DE FONTES =====
 function setupComparison() {
     // Botão para fechar comparação
-    document.getElementById('closeComparison').addEventListener('click', () => {
-        document.getElementById('comparisonModal').classList.remove('visible');
-    });
+    const closeBtn = document.getElementById('closeComparison');
+    if (closeBtn) {
+        const newCloseBtn = closeBtn.cloneNode(true);
+        closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+        
+        newCloseBtn.addEventListener('click', () => {
+            document.getElementById('comparisonModal').classList.remove('visible');
+        });
+    }
     
     // Botão para limpar comparação
-    document.getElementById('clearComparison').addEventListener('click', clearComparison);
+    const clearBtn = document.getElementById('clearComparison');
+    if (clearBtn) {
+        const newClearBtn = clearBtn.cloneNode(true);
+        clearBtn.parentNode.replaceChild(newClearBtn, clearBtn);
+        
+        newClearBtn.addEventListener('click', clearComparison);
+    }
     
     // Fechar modal ao clicar fora (se necessário)
     document.addEventListener('click', (e) => {
@@ -462,6 +500,8 @@ function clearComparison() {
 function updateComparisonUI() {
     const comparisonContent = document.getElementById('comparisonContent');
     const comparisonModal = document.getElementById('comparisonModal');
+    
+    if (!comparisonContent) return;
     
     if (state.comparingSources.length === 0) {
         comparisonContent.innerHTML = `
@@ -574,6 +614,8 @@ function updateComparisonUI() {
 
 function updateComparisonInfo() {
     const comparisonInfo = document.getElementById('comparisonInfo');
+    if (!comparisonInfo) return;
+    
     if (state.comparingSources.length > 0) {
         comparisonInfo.textContent = `${state.comparingSources.length}/2 fontes selecionadas para comparação`;
         comparisonInfo.classList.add('visible');
@@ -585,6 +627,7 @@ function updateComparisonInfo() {
 // ===== RENDERIZAÇÃO =====
 function renderSources() {
     const grid = document.getElementById('sourcesGrid');
+    if (!grid) return;
     
     if (state.filteredSources.length === 0) {
         grid.innerHTML = `
@@ -698,6 +741,7 @@ function getStarsHTML(rating) {
 // ===== LOAD GUIDES =====
 function loadGuides() {
     const grid = document.getElementById('guidesGrid');
+    if (!grid) return;
     
     if (CONFIG.guides.length === 0) {
         grid.innerHTML = `
@@ -714,7 +758,7 @@ function loadGuides() {
         <article class="source-card" data-id="${guide.id}">
             <div class="card-header">
                 <div class="card-icon">
-                    <span class="guide-emoji">${guide.emoji}</span>
+                    <i class="fas ${guide.icon}"></i>
                 </div>
                 <div class="card-title">
                     <h3>${guide.title}</h3>
@@ -738,6 +782,7 @@ function loadGuides() {
 // ===== LOAD UTILITIES =====
 function loadUtilities() {
     const grid = document.getElementById('utilitiesGrid');
+    if (!grid) return;
     
     if (CONFIG.utilities.length === 0) {
         grid.innerHTML = `
@@ -754,7 +799,7 @@ function loadUtilities() {
         <article class="source-card" data-id="${utility.id}">
             <div class="card-header">
                 <div class="card-icon">
-                    <span class="utility-emoji">${utility.emoji}</span>
+                    <i class="fas ${utility.icon}"></i>
                 </div>
                 <div class="card-title">
                     <h3>${utility.title}</h3>
