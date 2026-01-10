@@ -12,9 +12,9 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>The Repacker</b>",
+        "<b>The Repacker:</b> considerado a melhor fonte de repacks",
         "Compressão excelente (até 90% de redução)",
-        "Verificação da integridade dos arquivos"
+        "Verificação da integridade dos arquivos pós instalação"
       ],
       "cons": [
         "Instalação pode ser lenta",
@@ -34,14 +34,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Compressão excelente",
-        "Instalação mais rápida dos repacks",
-        "Atualizações frequentes para jogos"
+        "Compressão moderada",
+        "Instalação mais rápida em comparação ao FitGirl",
+        "Atualizações frequentes dos jogos"
       ],
       "cons": [
-        "Compressão menor dos repacks",
-        "Launcher considerado kitsch",
-        "Catálogo menor que FitGirl"
+        "Design do launcher desastroso",
+        "Catálogo menor que FitGirl",
+        "Erros constante na instalação se arquivos estiverem corrompidos"
       ]
     },
     {
@@ -56,14 +56,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Instalação extremamente rápida",
-        "Foco em jogos russos/ingleses",
-        "Interface simples e direta"
+        "Jogos em formato [Game folder]: baixou, jogou",
+        "Faz repacks com compressão moderada",
+        "Extenso catálogo de jogos"
       ],
       "cons": [
-        "Site em russo (requer tradução)",
-        "Foco limitado a certas regiões",
-        "Documentação em russo"
+        "Foco no idioma Russo e Inglês dos jogos",
+        "Alguns jogos apenas no idioma Russo",
+        "Mudança de idioma dos jogos geralmente dentros dos arquivos do jogo"
       ]
     },
     {
@@ -78,14 +78,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Suporte a multiplayer online",
-        "Funciona em servidores oficiais",
-        "Atualizações rápidas para patches"
+        "Suporte a multiplayer online oficial dos jogos",
+        "Alguns jogos funcionam em servidores oficiais e dedicados",
+        "Atualizações frequentes dos jogos"
       ],
       "cons": [
-        "Requer configuração adicional",
-        "Risco de banimento (embora raro)",
-        "Alguns jogos requerem Steam aberto"
+        "'Risco de banimento' (<b>nenhum caso oficial relatado</b>)",
+        "Alguns jogos requerem Steam/Epic Games aberto",
+        "Foco do idioma em Russo"
       ]
     },
     {
@@ -100,14 +100,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos sem DRM (execução direta)",
-        "Conteúdo bônus preservado",
-        "Instalação simples (setup ou arquivos)"
+        "Jogos sem DRM, arquivos totalmente limpos direto da GOG",
+        "Instalação simples (setup.exe)",
+        "Conteúdo bônus preservado"
       ],
       "cons": [
-        "Tamanhos maiores (sem compressão)",
-        "Atualizações manuais necessárias",
-        "Catálogo limitado a jogos GOG"
+        "Instalação dos jogos podem demorar",
+        "Catálogo limitado a jogos da GOG",
+        "Configuração do idioma pode ser complicada"
       ]
     },
     {
@@ -122,12 +122,12 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Curadoria manual (sem web scraping)",
-        "Fontes verificadas e testadas",
-        "Foco em compatibilidade"
+        "Curadoria manual, cada jogo escolhido a mão (sem web scraping)",
+        "Foco na variedade de jogos e pedidos da comunidade",
+        "Fontes verificadas e seguras"
       ],
       "cons": [
-        "Catálogo menor (curadoria manual)",
+        "Alguns jogos com pouquissímos seeders",
         "Atualizações menos frequentes",
         "Depende de fontes externas"
       ]
