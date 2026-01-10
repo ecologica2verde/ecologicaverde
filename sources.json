@@ -61,8 +61,8 @@
         "Catálogo extenso de jogos"
       ],
       "cons": [
+        "Gerlamente jogos dublados apenas com legendas PT-BR",
         "Configuração do idioma pode ser complicada",
-        "Alguns jogos apenas no idioma Russo",
         "Foco no idioma Russo e Inglês"
       ]
     },
@@ -83,8 +83,8 @@
         "Atualizações são frequentes"
       ],
       "cons": [
-        "Os jogos requerem a Steam ou a Epic Games aberto",
-        "Há guias fechados permanentemente",
+        "Há guias dos jogos fechados permanentemente",
+        "Necessário Steam ou da Epic Games aberto",
         "Foco do idioma em Russo"
       ]
     },
@@ -127,7 +127,7 @@
         "Fontes verificadas e seguras"
       ],
       "cons": [
-        "Alguns jogos com Pouquíssimos seeders",
+        "Alguns jogos com pouquíssimos seeders",
         "Atualizações menos frequentes",
         "Depende de fontes externas"
       ]
