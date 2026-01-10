@@ -451,7 +451,7 @@ body {
     z-index: 1;
 } */
 
-/* Pros & Cons */
+/* Pros & Cons - MODIFICADO: Agora em coluna (um em cima do outro) */
 .card-pros-cons {
     background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;
@@ -467,7 +467,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .pros-cons-header i {
@@ -481,22 +481,25 @@ body {
     color: #ffffff;
 }
 
+/* MODIFICADO: Agora em coluna vertical */
 .pros-cons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .pros-section, .cons-section {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .pros-title, .cons-title {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 12px;
     font-weight: 600;
 }
@@ -530,6 +533,8 @@ body {
     margin-bottom: 6px;
     padding-left: 16px;
     position: relative;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .pros-list li::before {
@@ -546,6 +551,12 @@ body {
     left: 0;
     color: #f44336;
     font-weight: bold;
+}
+
+/* Estilo para texto em negrito dentro dos prós e contras */
+.pros-list li strong, .cons-list li strong {
+    color: #ffffff;
+    font-weight: 600;
 }
 
 /* Card Meta */
@@ -1319,9 +1330,7 @@ body {
 }
 
 @media (max-width: 992px) {
-    .pros-cons-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Não precisa mais de regra para pros-cons-grid pois já está em coluna */
 }
 
 /* Hide scrollbars but keep functionality */
