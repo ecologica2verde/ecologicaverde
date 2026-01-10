@@ -401,7 +401,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 20px; /* Aumentado para compensar remoção da descrição */
     position: relative;
     z-index: 1;
 }
@@ -441,15 +441,15 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Card Description */
-.card-description {
+/* Card Description - REMOVIDA */
+/* .card-description {
     font-size: 13px;
     color: #b0b0b0;
     line-height: 1.5;
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
-}
+} */
 
 /* Pros & Cons */
 .card-pros-cons {
@@ -460,6 +460,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
     z-index: 1;
+    flex-grow: 1; /* Ocupa espaço disponível */
 }
 
 .pros-cons-header {
@@ -709,6 +710,18 @@ body {
 
 .guide-card:hover::before, .utility-card:hover::before {
     opacity: 1;
+}
+
+/* Card Description para Guias e Utilitários (mantido) */
+.guide-card .card-description,
+.utility-card .card-description {
+    font-size: 13px;
+    color: #b0b0b0;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
 }
 
 /* ===== COMPARISON MODAL ===== */

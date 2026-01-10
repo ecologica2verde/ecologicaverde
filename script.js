@@ -674,8 +674,6 @@ function renderSources() {
                 </div>
             </div>
             
-            <p class="card-description">${source.description}</p>
-            
             <div class="card-pros-cons">
                 <div class="pros-cons-header">
                     <i class="fas fa-chart-line"></i>
