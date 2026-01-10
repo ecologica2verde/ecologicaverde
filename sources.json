@@ -12,14 +12,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>THE Repacker:</b> considerado a melhor fonte de repacks",
-        "Compressão excelente (até 90% de redução)",
-        "Verificação da integridade dos arquivos pós instalação"
+        "<b>THE Repacker:</b> a melhor fonte de repacks",
+        "Verificação da integridade dos arquivos pós instalação",
+        "Compressão excelente (até 90% de redução)"
       ],
       "cons": [
-        "Instalação pode ser lenta",
+        "Erros na instalação se arquivos estiverem corrompidos",
         "Alta utilização da CPU durante instalação",
-        "Erros constante na instalação se arquivos estiverem corrompidos"
+        "Instalação pode ser lenta"
       ]
     },
     {
@@ -34,14 +34,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Compressão moderada",
-        "Instalação mais rápida em comparação ao FitGirl",
-        "Atualizações frequentes dos jogos"
+        "Instalação mais rápida do que a FitGirl",
+        "Atualizações frequentes",
+        "Compressão moderada"
       ],
       "cons": [
+        "Erros na instalação se arquivos estiverem corrompidos",
         "Design do launcher desastroso",
-        "Catálogo menor que FitGirl",
-        "Erros constante na instalação se arquivos estiverem corrompidos"
+        "Catálogo menor que a FitGirl"
       ]
     },
     {
@@ -56,14 +56,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos em formato [Game folder]: baixou, jogou",
+        "Há formato em <b>[Game folder]</b>: baixou, jogou",
         "Faz repacks com compressão moderada",
         "Extenso catálogo de jogos"
       ],
       "cons": [
+        "Mudar o idioma é geralmente dentro dos arquivos do jogo",
         "Foco no idioma Russo e Inglês dos jogos",
-        "Alguns jogos apenas no idioma Russo",
-        "Mudança de idioma dos jogos geralmente dentros dos arquivos do jogo"
+        "Alguns jogos apenas no idioma Russo"
       ]
     },
     {
@@ -78,9 +78,9 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Suporte a multiplayer online oficial dos jogos",
-        "Alguns jogos funcionam em servidores oficiais e dedicados",
-        "Atualizações frequentes dos jogos"
+        "Os jogos podem funcionam em servidores oficiais e dedicados",
+        "Suporte a multiplayer online",
+        "Atualizações frequentes"
       ],
       "cons": [
         "Alguns jogos podem ter seus guias fechados permanentemente",
@@ -122,8 +122,8 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Curadoria manual (sem nenhum tipo de web scraping)",
-        "Jogos acrescentado por pedidos da comunidade",
+        "Jogos incluídos por pedidos da comunidade",
+        "Curadoria manual (sem web scraping)",
         "Fontes verificadas e seguras"
       ],
       "cons": [
