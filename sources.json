@@ -35,13 +35,13 @@
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Instalação mais rápida do que a FitGirl",
-        "Compressão dos arquivos moderada",
-        "Atualizações são frequentes"
+        "Uso moderado da CPU durante instalação",
+        "Compressão dos arquivos moderada"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
-        "Design do launcher desastroso",
-        "Catálogo menor que a FitGirl"
+        "Catálogo menor em comparação ao da FitGirl",
+        "Design do launcher desastroso"
       ]
     },
     {
@@ -56,9 +56,9 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Há formato em <b>[Game folder]</b>: baixou, jogou",
-        "Faz repacks com compressão moderada",
-        "Extenso catálogo de jogos"
+        "Lançamentos em <b>[Game folder]</b>: baixou, jogou",
+        "Faz repacks com compressão baixa/moderada",
+        "Catálogo extenso de jogos"
       ],
       "cons": [
         "Configuração do idioma pode ser complicada",
