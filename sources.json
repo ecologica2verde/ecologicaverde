@@ -12,12 +12,12 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>THE Repacker</b> - Referência no mercado",
-        "Verificação da integridade dos arquivos",
+        "<b>THE Repacker</b>",
+        "Verificação da integridade dos arquivos pós instalação",
         "Compressão excelente (até 90% de redução)"
       ],
       "cons": [
-        "Erros se arquivos estiverem corrompidos",
+        "Erros na instalação se arquivos estiverem corrompidos",
         "Alta utilização da CPU durante instalação",
         "Instalação pode ser lenta"
       ]
@@ -27,21 +27,21 @@
       "name": "DODI Repacks",
       "shortName": "<b>[Donate Link](https://dodi-repacks.site/donate/)</b>",
       "filename": "DODI Repack",
-      "description": "Repacks de jogos de alta qualidade com foco em compressão e confiabilidade.",
+      "description": "Repacks de jogos de alta qualidade com foco em compressão e confiabilidade. Conhecido por Repacks de instalação rápida e segura, com um launcher com design peculiar.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Instalação mais rápida do que FitGirl",
+        "Instalação mais rápida do que a FitGirl",
         "Atualizações são frequentes",
-        "Compressão moderada e eficiente"
+        "Compressão moderada"
       ],
       "cons": [
-        "Erros na instalação se arquivos corrompidos",
-        "Design do launcher desorganizado",
-        "Catálogo menor que FitGirl"
+        "Erros na instalação se arquivos estiverem corrompidos",
+        "Design do launcher desastroso",
+        "Catálogo menor que a FitGirl"
       ]
     },
     {
@@ -49,21 +49,21 @@
       "name": "ByXATAB",
       "shortName": "<b>[Donate Link](https://byxatab.com/donate.html)</b>",
       "filename": "ByXATAB",
-      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders.",
+      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Formato <b>[Game folder]</b>: baixou, jogou",
+        "Há formato em <b>[Game folder]</b>: baixou, jogou",
         "Faz repacks com compressão moderada",
-        "Extenso catálogo de jogos disponível"
+        "Extenso catálogo de jogos"
       ],
       "cons": [
-        "Mudar o idioma é geralmente complicado",
+        "Mudar o idioma é geralmente dentro dos arquivos do jogo",
         "Alguns jogos apenas no idioma Russo",
-        "Foco principal em Russo e Inglês"
+        "Foco no idioma Russo e Inglês"
       ]
     },
     {
@@ -71,19 +71,19 @@
       "name": "OnlineFixMe",
       "shortName": "<b>[Donate Link](https://www.donationalerts.com/r/online_fix_me)</b>",
       "filename": "OnlineFixMe",
-      "description": "Correções e Suporte Online para jogos Multiplayer.",
+      "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Pode jogar em servidores oficiais",
-        "Suporte a multiplayer online completo",
-        "Atualizações são frequentes e rápidas"
+        "Pode se jogar em servidores oficiais",
+        "Suporte a multiplayer online",
+        "Atualizações são frequentes"
       ],
       "cons": [
-        "Requer Steam ou Epic Games aberto",
+        "Os jogos requerem a Steam ou a Epic Games aberto",
         "Há guias fechados permanentemente",
         "Foco do idioma em Russo"
       ]
@@ -93,20 +93,20 @@
       "name": "Free PC GOG Games",
       "shortName": "<b>[Donate Link](https://freegogpcgames.com/contact/)</b>",
       "filename": "FreePCGOGGames",
-      "description": "Jogos sem DRM da plataforma GOG, preservados com conteúdo bônus.",
+      "description": "Jogos sem DRM da plataforma GOG, preservados com todo o conteúdo bônus. Foco na qualidade e segurança.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos sem DRM, arquivos limpos e seguros",
-        "Conteúdo bônus preservado integralmente",
-        "Instalação simples e direta"
+        "Jogos sem DRM, arquivos limpos",
+        "Conteúdo bônus preservado",
+        "Instalação simples"
       ],
       "cons": [
         "Configuração do idioma pode ser complicada",
-        "Instalação dos jogos pode demorar",
+        "Instalação dos jogos podem demorar",
         "Catálogo limitado a jogos da GOG"
       ]
     },
@@ -115,7 +115,7 @@
       "name": "Ecológica Verde",
       "shortName": "Projeto sem fins lucrativo.",
       "filename": "Ecológica Verde",
-      "description": "Jogos curados pela equipe com foco em qualidade e segurança.",
+      "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
       "status": "verified",
       "gameCount": 0,
       "lastUpdated": "",
@@ -124,12 +124,12 @@
       "pros": [
         "Jogos incluídos por pedidos da comunidade",
         "Curadoria manual (sem web scraping)",
-        "Fontes verificadas e 100% seguras"
+        "Fontes verificadas e seguras"
       ],
       "cons": [
-        "Alguns jogos com pouquíssimos seeders",
-        "Atualizações menos frequentes que outras",
-        "Depende de fontes externas disponíveis"
+        "Alguns jogos com pouquissímos seeders",
+        "Atualizações menos frequentes",
+        "Depende de fontes externas"
       ]
     }
   ],
