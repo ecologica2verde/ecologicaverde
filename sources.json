@@ -34,8 +34,8 @@
       "url": "#",
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Instalação mais rápida do que a FitGirl",
         "Uso moderado da CPU durante instalação",
+        "Instalação mais rápida do que a FitGirl",
         "Compressão dos arquivos moderada"
       ],
       "cons": [
@@ -79,8 +79,8 @@
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
         "Pode se jogar em servidores oficiais",
-        "Suporte a multiplayer online",
-        "Atualizações são frequentes"
+        "Atualizações são frequentes",
+        "Suporte a multiplayer online"
       ],
       "cons": [
         "Há guias dos jogos fechados permanentemente",
