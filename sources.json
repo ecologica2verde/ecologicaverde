@@ -12,7 +12,7 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>The Repacker:</b> considerado a melhor fonte de repacks",
+        "<b>THE Repacker:</b> considerado a melhor fonte de repacks",
         "Compressão excelente (até 90% de redução)",
         "Verificação da integridade dos arquivos pós instalação"
       ],
@@ -83,8 +83,8 @@
         "Atualizações frequentes dos jogos"
       ],
       "cons": [
-        "'Risco de banimento' (<b>nenhum caso oficial relatado</b>)",
-        "Alguns jogos requerem Steam/Epic Games aberto",
+        "Alguns jogos podem ter seus guias fechados permanentemente",
+        "Os jogos requerem a Steam ou a Epic Games aberto",
         "Foco do idioma em Russo"
       ]
     },
@@ -100,14 +100,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos sem DRM, arquivos totalmente limpos direto da GOG",
-        "Instalação simples (setup.exe)",
-        "Conteúdo bônus preservado"
+        "Jogos sem DRM, arquivos limpos",
+        "Conteúdo bônus preservado",
+        "Instalação simples"
       ],
       "cons": [
+        "Configuração do idioma pode ser complicada",
         "Instalação dos jogos podem demorar",
-        "Catálogo limitado a jogos da GOG",
-        "Configuração do idioma pode ser complicada"
+        "Catálogo limitado a jogos da GOG"
       ]
     },
     {
@@ -122,8 +122,8 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Curadoria manual, cada jogo escolhido a mão (sem web scraping)",
-        "Foco na variedade de jogos e pedidos da comunidade",
+        "Curadoria manual (sem nenhum tipo de web scraping)",
+        "Jogos acrescentado por pedidos da comunidade",
         "Fontes verificadas e seguras"
       ],
       "cons": [
