@@ -12,14 +12,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Compressão excelente (até 90% menor)",
-        "Verificação de arquivos integrada",
-        "Atualizações frequentes"
+        "<b>The Repacker</b>",
+        "Compressão excelente (até 90% de redução)",
+        "Verificação da integridade dos arquivos"
       ],
       "cons": [
         "Instalação pode ser lenta",
-        "Alta carga no CPU durante instalação",
-        "Alguns antivírus dão falso positivo"
+        "Alta utilização da CPU durante instalação",
+        "Erros constante na instalação se arquivos estiverem corrompidos"
       ]
     },
     {
@@ -34,14 +34,14 @@
       "url": "#",
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Instalação mais rápida que FitGirl",
-        "Launcher personalizado com opções",
-        "Suporte a múltiplos idiomas"
+        "Compressão excelente",
+        "Instalação mais rápida dos repacks",
+        "Atualizações frequentes para jogos"
       ],
       "cons": [
-        "Compressão menor que FitGirl",
-        "Design do launcher polêmico",
-        "Menor variedade de jogos"
+        "Compressão menor dos repacks",
+        "Launcher considerado kitsch",
+        "Catálogo menor que FitGirl"
       ]
     },
     {
