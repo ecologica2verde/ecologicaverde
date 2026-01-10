@@ -13,8 +13,8 @@
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "<b>THE Repacker</b>: referência entre os repackers",
-        "Compressão excelente (até 90% de redução)",
-        "Verificação da integridade dos arquivos"
+        "Verifica integridade dos arquivos instalados",
+        "Compressão dos arquivos excelente (até 90% de redução)"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
@@ -35,8 +35,8 @@
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Instalação mais rápida do que a FitGirl",
-        "Atualizações são frequentes",
-        "Compressão moderada"
+        "Compressão dos arquivos moderada",
+        "Atualizações são frequentes"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
