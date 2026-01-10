@@ -12,7 +12,7 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>THE Repacker:</b> a melhor fonte de repacks",
+        "<b>THE Repacker</b>",
         "Verificação da integridade dos arquivos pós instalação",
         "Compressão excelente (até 90% de redução)"
       ],
@@ -35,7 +35,7 @@
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Instalação mais rápida do que a FitGirl",
-        "Atualizações frequentes",
+        "Atualizações são frequentes",
         "Compressão moderada"
       ],
       "cons": [
@@ -78,13 +78,13 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Os jogos podem funcionam em servidores oficiais e dedicados",
+        "Pode se jogar em servidores oficiais",
         "Suporte a multiplayer online",
-        "Atualizações frequentes"
+        "Atualizações são frequentes"
       ],
       "cons": [
-        "Alguns jogos podem ter seus guias fechados permanentemente",
         "Os jogos requerem a Steam ou a Epic Games aberto",
+        "Há guias que são fechados permanentemente",
         "Foco do idioma em Russo"
       ]
     },
