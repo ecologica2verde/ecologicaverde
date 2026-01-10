@@ -12,12 +12,12 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "<b>THE Repacker</b>",
-        "Verificação da integridade dos arquivos pós instalação",
-        "Compressão excelente (até 90% de redução)"
+        "<b>THE Repacker</b>: referência entre os repackers",
+        "Compressão excelente (até 90% de redução)",
+        "Verificação da integridade dos arquivos"
       ],
       "cons": [
-        "Erros na instalação se arquivos estiverem corrompidos",
+        "Falhas na instalação por arquivos corrompidos",
         "Alta utilização da CPU durante instalação",
         "Instalação pode ser lenta"
       ]
@@ -39,7 +39,7 @@
         "Compressão moderada"
       ],
       "cons": [
-        "Erros na instalação se arquivos estiverem corrompidos",
+        "Falhas na instalação por arquivos corrompidos",
         "Design do launcher desastroso",
         "Catálogo menor que a FitGirl"
       ]
@@ -61,7 +61,7 @@
         "Extenso catálogo de jogos"
       ],
       "cons": [
-        "Mudar o idioma é geralmente dentro dos arquivos do jogo",
+        "Configuração do idioma pode ser complicada",
         "Alguns jogos apenas no idioma Russo",
         "Foco no idioma Russo e Inglês"
       ]
@@ -127,7 +127,7 @@
         "Fontes verificadas e seguras"
       ],
       "cons": [
-        "Alguns jogos com pouquissímos seeders",
+        "Alguns jogos com Pouquíssimos seeders",
         "Atualizações menos frequentes",
         "Depende de fontes externas"
       ]
