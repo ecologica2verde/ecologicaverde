@@ -1,21 +1,141 @@
 {
-  "name": "Ecológica Verde",
-  "short_name": "EcoVerde",
-  "description": "Biblioteca virtual de fontes de jogos",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#1a5c36",
-  "icons": [
+  "sources": [
     {
-      "src": "assets/logos/logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "id": "fitgirl",
+      "name": "FitGirl Repacks",
+      "shortName": "<b>[Donate Link](https://fitgirl-repacks.site/donations/)</b>",
+      "filename": "FitGirl Repack",
+      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
+      "pros": [
+        "<b>THE Repacker</b>: referência entre os repackers",
+        "Verifica integridade dos arquivos instalados",
+        "Compressão dos arquivos excelente"
+      ],
+      "cons": [
+        "Falhas na instalação por arquivos corrompidos",
+        "Alta utilização da CPU durante instalação",
+        "Instalação pode ser lenta"
+      ]
     },
     {
-      "src": "assets/logos/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "id": "dodi",
+      "name": "DODI Repacks",
+      "shortName": "<b>[Donate Link](https://dodi-repacks.site/donate/)</b>",
+      "filename": "DODI Repack",
+      "description": "Repacks de jogos de alta qualidade com foco em compressão e confiabilidade. Conhecido por Repacks de instalação rápida e segura, com um launcher com design peculiar.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
+      "pros": [
+        "Uso moderado da CPU durante instalação",
+        "Instalação mais rápida do que a FitGirl",
+        "Compressão dos arquivos moderada"
+      ],
+      "cons": [
+        "Falhas na instalação por arquivos corrompidos",
+        "Catálogo menor em comparação ao da FitGirl",
+        "Design do launcher desastroso"
+      ]
+    },
+    {
+      "id": "byxatab",
+      "name": "ByXATAB",
+      "shortName": "<b>[Donate Link](https://byxatab.com/donate.html)</b>",
+      "filename": "ByXATAB",
+      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "pros": [
+        "Lançamentos em <b>[Game folder]</b>: baixou, jogou",
+        "Faz repacks com compressão baixa/moderada",
+        "Catálogo extenso de jogos"
+      ],
+      "cons": [
+        "Configuração do idioma pode ser complicada",
+        "Jogos dublados só com legendas PT-BR",
+        "Foco no idioma Russo e Inglês"
+      ]
+    },
+    {
+      "id": "onlinefix",
+      "name": "OnlineFixMe",
+      "shortName": "<b>[Donate Link](https://www.donationalerts.com/r/online_fix_me)</b>",
+      "filename": "OnlineFixMe",
+      "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
+      "pros": [
+        "Pode se jogar em servidores oficiais",
+        "Atualizações são frequentes",
+        "Suporte a multiplayer online"
+      ],
+      "cons": [
+        "Há guias dos jogos fechados permanentemente",
+        "Necessário Steam ou da Epic Games aberto",
+        "Foco do idioma em Russo"
+      ]
+    },
+    {
+      "id": "gog",
+      "name": "Free PC GOG Games",
+      "shortName": "<b>[Donate Link](https://freegogpcgames.com/contact/)</b>",
+      "filename": "FreePCGOGGames",
+      "description": "Jogos sem DRM da plataforma GOG, preservados com todo o conteúdo bônus. Foco na qualidade e segurança.",
+      "status": "trusted",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "pros": [
+        "Jogos sem DRM, arquivos limpos",
+        "Conteúdo bônus preservado",
+        "Instalação simples"
+      ],
+      "cons": [
+        "Configuração do idioma pode ser complicada",
+        "Instalação dos jogos podem demorar",
+        "Catálogo limitado a jogos da GOG"
+      ]
+    },
+    {
+      "id": "ecologica",
+      "name": "Ecológica Verde",
+      "shortName": "Projeto sem fins lucrativo.",
+      "filename": "Ecológica Verde",
+      "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
+      "status": "verified",
+      "gameCount": 0,
+      "lastUpdated": "",
+      "url": "#",
+      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
+      "pros": [
+        "Jogos incluídos por pedidos da comunidade",
+        "Curadoria manual (sem web scraping)",
+        "Fontes verificadas e seguras"
+      ],
+      "cons": [
+        "Alguns jogos com pouquíssimos seeders",
+        "Atualizações menos frequentes",
+        "Depende de fontes externas"
+      ]
     }
-  ]
+  ],
+  "stats": {
+    "totalSources": 6,
+    "totalGames": 0,
+    "lastUpdated": "2024-01-15"
+  }
 }

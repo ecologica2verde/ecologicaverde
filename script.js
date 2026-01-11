@@ -2,14 +2,14 @@
 const CONFIG = {
     statusLabels: {
         'trusted': { label: 'Confiável', class: 'status-trusted', icon: 'fa-shield-alt' },
-        'verified': { label: 'Verificada', class: 'status-verified', icon: 'fa-check-circle' },
+        'verified': { label: 'Verificada e Segura', class: 'status-verified', icon: 'fa-check-circle' },
         'risk': { label: 'Com Risco', class: 'status-risk', icon: 'fa-exclamation-triangle' }
     },
     
     sourceTypes: {
         'fitgirl': { type: 'repacks', icon: 'fa-gamepad' },
         'dodi': { type: 'repacks', icon: 'fa-gamepad' },
-        'byxatab': { type: 'folder', icon: 'fa-gamepad' },
+        'byxatab': { type: 'repacks', icon: 'fa-gamepad' },
         'onlinefix': { type: 'online', icon: 'fa-wifi' },
         'gog': { type: 'gog', icon: 'fa-gamepad' },
         'ecologica': { type: 'repacks', icon: 'fa-leaf' }
@@ -39,7 +39,7 @@ const CONFIG = {
             emoji: '📚',
             icon: 'fa-book',
             title: 'TODOS GUIAS DA ECOLÓGICA VERDE',
-            description: 'Acesso completo a todos os guias disponíveis na biblioteca.',
+            description: 'Acesso completo a todos os guias públicos disponíveis pela Ecológica Verde.',
             url: 'https://rentry.co/ECOLOGICA-VERDE-GUIAS'
         },
         {
@@ -47,7 +47,7 @@ const CONFIG = {
             emoji: '📙',
             icon: 'fa-paint-brush',
             title: 'GUIA: Adobe Creative Cloud',
-            description: 'Guia completo para instalação e ativação do Adobe Creative Cloud.',
+            description: 'Guia completo para instalação e ativação dos aplicativos da Adobe Creative Cloud.',
             url: 'https://rentry.co/adobe-creative-cloud-ecologica-verde'
         },
         {
@@ -55,7 +55,7 @@ const CONFIG = {
             emoji: '📗',
             icon: 'fa-desktop',
             title: 'GUIA: Pacote Microsoft Office e Ativador do Windows',
-            description: 'Instalação e ativação do Microsoft Office e Windows.',
+            description: 'Guia completo para instalação e ativação do Pacote Microsoft Office e Windows.',
             url: 'https://rentry.co/ATIVADOR-MICROSOFT-OFFICE-E-WINDOWS-ECOLOGICA-VERDE'
         },
         {
@@ -63,7 +63,7 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             title: 'GUIA: Digimon Story: Time Stranger',
-            description: 'Guia completo para instalação e configuração do jogo.',
+            description: 'Guia completo para instalação e configuração do Digimon Story: Time Stranger da Steam.',
             url: 'https://rentry.co/DIGIMON-STORY-TIME-STRANGER-ECOLOGICA-VERDE'
         },
         {
@@ -71,7 +71,7 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             title: 'GUIA: ELDEN RING NIGHTREIGN',
-            description: 'Instalação e configuração do mod Nightreign para Elden Ring.',
+            description: 'Guia completo para instalação e configuração do mod (Seamless Co-op) do ELDEN RING NIGHTREIGN.',
             url: 'https://rentry.co/elden-ring-nightreign-ecologica-verde'
         },
         {
@@ -79,7 +79,7 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             title: 'GUIA: FINAL FANTASY XV: Windows Edition',
-            description: 'Guia completo para instalação e otimização do jogo.',
+            description: 'Guia completo para instalação e configuração do FINAL FANTASY XV: Windows Edition.',
             url: 'https://rentry.co/FINAL-FANTASY-XV-ECOLOGICA-VERDE'
         },
         {
@@ -87,7 +87,7 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             title: 'GUIA: Persona 3 Reload',
-            description: 'Instalação e configuração do Persona 3 Reload.',
+            description: 'Guia completo para instalação e configuração do Persona 3 Reload da Steam.',
             url: 'https://rentry.co/PERSONA-3-RELOAD-ECOLOGICA-VERDE'
         },
         {
@@ -95,7 +95,7 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             title: 'GUIA: Shin Megami Tensei V: Vengeance',
-            description: 'Guia completo para instalação do SMT V: Vengeance.',
+            description: 'Guia completo para instalação e configuração do Shin Megami Tensei V: Vengeance da Steam.',
             url: 'https://rentry.co/SHIN-MEGAMI-TENSEI-V-VENGEANCE-ECOLOGICA-VERDE'
         },
         {
@@ -103,7 +103,7 @@ const CONFIG = {
             emoji: '⛔',
             icon: 'fa-exclamation-triangle',
             title: 'SITES: Fontes Externas não recomendadas',
-            description: 'Lista de sites problemáticos e fontes não recomendadas.',
+            description: 'Lista de sites problemáticos (adware, vírus, trojan) e de fontes não recomendadas.',
             url: 'https://rentry.co/sites-problematicos-ecologica-verde'
         }
     ],
@@ -113,8 +113,8 @@ const CONFIG = {
             id: 'fmhy',
             emoji: '➡️',
             icon: 'fa-external-link-alt',
-            title: 'FMHY',
-            description: 'Freemediaheckyeah - Recursos gratuitos para mídia e entretenimento.',
+            title: 'FMHY: Freemediaheckyeah',
+            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
             url: 'https://fmhy.net/'
         },
         {
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadUtilities();
     setupCardEffects();
     setupComparison();
-    updateScrollbarVisibility(); // Inicializa visibilidade do scrollbar
+    updateScrollbarVisibility();
 });
 
 async function initializeApp() {
@@ -202,15 +202,14 @@ async function initializeApp() {
         const response = await fetch('sources.json');
         const data = await response.json();
         
-        // Limitar para 3 pros e 3 contras cada fonte
         state.sources = data.sources.map(source => ({
             ...source,
             type: CONFIG.sourceTypes[source.id]?.type || 'other',
             icon: CONFIG.sourceTypes[source.id]?.icon || 'fa-gamepad',
             stars: CONFIG.recommendations[source.id] || 0,
             url: CONFIG.sourceUrls[source.id] || '#',
-            pros: (source.pros || []).slice(0, 3), // Apenas 3 pros
-            cons: (source.cons || []).slice(0, 3)  // Apenas 3 contras
+            pros: (source.pros || []).slice(0, 3),
+            cons: (source.cons || []).slice(0, 3)
         }));
         
         state.filteredSources = [...state.sources];
@@ -228,46 +227,38 @@ function setupNavigation() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Prevenir múltiplos cliques rápidos
             if (state.isChangingSection) return;
             state.isChangingSection = true;
             
             const section = e.currentTarget.dataset.section;
             
-            // Atualiza navegação ativa
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             
             e.currentTarget.parentElement.classList.add('active');
             
-            // Atualiza seção de conteúdo
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
             
             document.getElementById(`${section}-section`).classList.add('active');
             
-            // Controla visibilidade da sidebar de filtros
             const filtersSidebar = document.getElementById('filtersSidebar');
             
             if (section === 'sources') {
-                // Mostra filtros com animação suave
                 filtersSidebar.classList.remove('hidden');
                 
-                // Força reflow para animação funcionar
                 void filtersSidebar.offsetWidth;
                 
                 filtersSidebar.style.opacity = '1';
                 filtersSidebar.style.transform = 'translateX(0)';
                 
-                // Garante que os filtros funcionem
                 setTimeout(() => {
                     setupFilterListeners();
                     state.isChangingSection = false;
                 }, 100);
             } else {
-                // Esconde filtros com animação para a esquerda
                 filtersSidebar.style.opacity = '0';
                 filtersSidebar.style.transform = 'translateX(100%)';
                 
@@ -279,7 +270,7 @@ function setupNavigation() {
             
             state.currentSection = section;
             updateComparisonInfo();
-            updateScrollbarVisibility(); // Atualiza visibilidade do scrollbar ao mudar seção
+            updateScrollbarVisibility();
         });
     });
 }
@@ -300,16 +291,14 @@ function updateScrollbarVisibility() {
     });
 }
 
-// ===== SETUP FILTER LISTENERS (Função isolada para prevenir conflitos) =====
+// ===== SETUP FILTER LISTENERS =====
 function setupFilterListeners() {
-    // Remove todos os listeners existentes primeiro
     const filterOptions = document.querySelectorAll('.filter-option');
     filterOptions.forEach(button => {
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
     });
 
-    // Filtros de ordenação
     document.querySelectorAll('[data-sort]').forEach(button => {
         button.addEventListener('click', (e) => {
             const sort = e.currentTarget.dataset.sort;
@@ -325,7 +314,6 @@ function setupFilterListeners() {
         });
     });
     
-    // Filtros de tipo
     document.querySelectorAll('[data-type]').forEach(button => {
         button.addEventListener('click', (e) => {
             const type = e.currentTarget.dataset.type;
@@ -341,7 +329,6 @@ function setupFilterListeners() {
         });
     });
     
-    // Filtros de status
     document.querySelectorAll('[data-status]').forEach(button => {
         button.addEventListener('click', (e) => {
             const status = e.currentTarget.dataset.status;
@@ -357,7 +344,6 @@ function setupFilterListeners() {
         });
     });
     
-    // Filtros de estrelas
     document.querySelectorAll('[data-stars]').forEach(button => {
         button.addEventListener('click', (e) => {
             const stars = e.currentTarget.dataset.stars;
@@ -373,7 +359,6 @@ function setupFilterListeners() {
         });
     });
     
-    // Reset filters
     const resetBtn = document.getElementById('resetFilters');
     const newResetBtn = resetBtn.cloneNode(true);
     resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
@@ -381,37 +366,42 @@ function setupFilterListeners() {
     newResetBtn.addEventListener('click', resetFilters);
 }
 
-// ===== SETUP EVENT LISTENERS (Apenas para elementos não-filtro) =====
+// ===== SETUP EVENT LISTENERS =====
 function setupEventListeners() {
-    // Setup dos filtros separadamente
     if (state.currentSection === 'sources') {
         setupFilterListeners();
     }
     
-    // Setup do comparison
     setupComparison();
 }
 
 function applyFilters() {
     let filtered = [...state.sources];
     
-    // Filtro de status
     if (state.filters.status !== 'all') {
         filtered = filtered.filter(source => source.status === state.filters.status);
     }
     
-    // Filtro de tipo
     if (state.filters.type !== 'all') {
-        filtered = filtered.filter(source => source.type === state.filters.type);
+        if (state.filters.type === 'folder') {
+            filtered = filtered.filter(source => source.id === 'byxatab');
+        } else if (state.filters.type === 'repacks') {
+            filtered = filtered.filter(source => 
+                source.id === 'fitgirl' || 
+                source.id === 'dodi' || 
+                source.id === 'byxatab' || 
+                source.id === 'ecologica'
+            );
+        } else {
+            filtered = filtered.filter(source => source.type === state.filters.type);
+        }
     }
     
-    // Filtro de estrelas
     if (state.filters.stars !== 'all') {
         const starCount = parseInt(state.filters.stars);
         filtered = filtered.filter(source => source.stars === starCount);
     }
     
-    // Ordenação
     filtered.sort((a, b) => {
         switch(state.filters.sort) {
             case 'name':
@@ -440,12 +430,10 @@ function resetFilters() {
         sort: 'name'
     };
     
-    // Reset all filter buttons
     document.querySelectorAll('.filter-option').forEach(btn => {
         btn.classList.remove('active');
     });
     
-    // Set default active buttons
     document.querySelectorAll('[data-sort="name"], [data-type="all"], [data-status="all"], [data-stars="all"]').forEach(btn => {
         btn.classList.add('active');
     });
@@ -455,7 +443,6 @@ function resetFilters() {
 
 // ===== COMPARAÇÃO DE FONTES =====
 function setupComparison() {
-    // Botão para fechar comparação
     const closeBtn = document.getElementById('closeComparison');
     if (closeBtn) {
         const newCloseBtn = closeBtn.cloneNode(true);
@@ -466,7 +453,6 @@ function setupComparison() {
         });
     }
     
-    // Botão para limpar comparação
     const clearBtn = document.getElementById('clearComparison');
     if (clearBtn) {
         const newClearBtn = clearBtn.cloneNode(true);
@@ -475,7 +461,6 @@ function setupComparison() {
         newClearBtn.addEventListener('click', clearComparison);
     }
     
-    // Fechar modal ao clicar fora (se necessário)
     document.addEventListener('click', (e) => {
         const modal = document.getElementById('comparisonModal');
         if (e.target === modal) {
@@ -489,7 +474,6 @@ function toggleComparison(sourceId) {
     const index = state.comparingSources.findIndex(s => s.id === sourceId);
     
     if (index === -1) {
-        // Adicionar à comparação (máximo 2 fontes)
         if (state.comparingSources.length >= 2) {
             showNotification('⚠️ Limite Atingido', 'Você só pode comparar 2 fontes por vez.', 'warning');
             return;
@@ -497,12 +481,10 @@ function toggleComparison(sourceId) {
         state.comparingSources.push(source);
         showNotification('✓ Adicionado', `${source.name} adicionado à comparação`, 'success');
     } else {
-        // Remover da comparação
         state.comparingSources.splice(index, 1);
         showNotification('ℹ️ Removido', `${source.name} removido da comparação`, 'info');
     }
     
-    // Atualizar interface
     updateComparisonUI();
     updateComparisonInfo();
     renderSources();
@@ -541,7 +523,6 @@ function updateComparisonUI() {
         `;
         comparisonModal.classList.add('visible');
     } else {
-        // Mostrar comparação de 2 fontes
         const [source1, source2] = state.comparingSources;
         
         comparisonContent.innerHTML = `
@@ -726,7 +707,6 @@ function renderSources() {
         </article>
     `}).join('');
     
-    // Converte links de markdown para HTML nos subtítulos
     convertMarkdownLinks();
     setupCardEffects();
 }
@@ -734,7 +714,6 @@ function renderSources() {
 function convertMarkdownLinks() {
     document.querySelectorAll('.card-subtitle').forEach(subtitle => {
         const html = subtitle.innerHTML;
-        // Converte [texto](url) para <a href="url">texto</a>
         const converted = html.replace(
             /\[([^\]]+)\]\(([^)]+)\)/g, 
             '<a href="$2" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">$1</a>'
@@ -923,7 +902,6 @@ function showSourceDetails(sourceId) {
     
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     
-    // Close modal when clicking outside
     document.getElementById('sourceModal').addEventListener('click', (e) => {
         if (e.target.id === 'sourceModal') {
             closeModal();
@@ -954,7 +932,6 @@ function showError(message, section) {
 }
 
 function showNotification(title, message, type = 'info') {
-    // Remove existing notifications
     document.querySelectorAll('.notification').forEach(n => n.remove());
     
     const icons = {
