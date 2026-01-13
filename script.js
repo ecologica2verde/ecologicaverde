@@ -119,6 +119,22 @@ const CONFIG = {
     
     utilities: [
         {
+            id: 'fmhy',
+            emoji: '➡️',
+            icon: 'fa-external-link-alt',
+            title: 'FMHY: Freemediaheckyeah',
+            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
+            url: 'https://fmhy.net/'
+        },
+        {
+            id: 'piracy-megathread',
+            emoji: '💬',
+            icon: 'fa-external-link-alt',
+            title: 'r/Piracy Megathread',
+            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
+            url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
+        },
+        {
             id: 'adguard-vpn',
             emoji: '⛔',
             icon: 'fa-user-shield',
@@ -133,22 +149,6 @@ const CONFIG = {
             title: 'Cobalt Tools',
             description: 'Ferramentas para download de mídia de várias plataformas.',
             url: 'https://cobalt.tools/'
-        },
-        {
-            id: 'fmhy',
-            emoji: '➡️',
-            icon: 'fa-external-link-alt',
-            title: 'FMHY: Freemediaheckyeah',
-            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
-            url: 'https://fmhy.net/'
-        },
-        {
-            id: 'piracy-megathread',
-            emoji: '💬',
-            icon: 'fa-reddit',
-            title: 'r/Piracy Megathread',
-            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
-            url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
         },
         {
             id: 'rentry',
@@ -603,7 +603,7 @@ function updateComparisonUI() {
                             </span>
                         </div>
                         <div class="comparison-detail">
-                            <span class="detail-label">Recomendações</span>
+                            <span class="detail-label">Recomendação</span>
                             <span class="detail-value">
                                 ${getStarsHTML(source2.stars)}
                             </span>
@@ -664,6 +664,9 @@ function renderSources() {
     grid.innerHTML = state.filteredSources.map(source => {
         const isComparing = state.comparingSources.some(s => s.id === source.id);
         
+        // Verifica se é a Ecológica Verde para mostrar texto diferente
+        const isEcologica = source.id === 'ecologica';
+        
         return `
         <article class="source-card ${isComparing ? 'comparing' : ''}" data-id="${source.id}">
             <div class="card-header">
@@ -674,14 +677,12 @@ function renderSources() {
                     <h3>${source.name}</h3>
                     <div class="card-subtitle">
                         <div class="donate-safety-links">
-                            <div class="link-item">
-                                ${source.shortName}
-                            </div>
-                            <div class="link-item">
-                                <a href="${source.safetyLink}" class="safety-link" target="_blank">
-                                    <i class="fas fa-shield-alt"></i> URL Safely
-                                </a>
-                            </div>
+                            ${isEcologica ? 
+                                `<span>Projeto sem fins lucrativo</span>` : 
+                                source.shortName
+                            }
+                            <span class="divider">|</span>
+                            <a href="${source.safetyLink}" class="link-text" target="_blank">URL Safely</a>
                         </div>
                     </div>
                 </div>
@@ -739,19 +740,7 @@ function renderSources() {
         </article>
     `}).join('');
     
-    convertMarkdownLinks();
     setupCardEffects();
-}
-
-function convertMarkdownLinks() {
-    document.querySelectorAll('.card-subtitle').forEach(subtitle => {
-        const html = subtitle.innerHTML;
-        const converted = html.replace(
-            /\[([^\]]+)\]\(([^)]+)\)/g, 
-            '<a href="$2" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">$1</a>'
-        );
-        subtitle.innerHTML = converted;
-    });
 }
 
 function getStarsHTML(rating) {
@@ -823,8 +812,19 @@ function loadUtilities() {
         return;
     }
     
-    // Ordenar utilitários: FMHY primeiro, r/Piracy Megathread segundo, resto alfabeticamente
-    const sortedUtilities = [...CONFIG.utilities];
+    // Ordenar utilitários manualmente para garantir a ordem correta
+    const sortedUtilities = CONFIG.utilities.sort((a, b) => {
+        // FMHY sempre primeiro
+        if (a.id === 'fmhy') return -1;
+        if (b.id === 'fmhy') return 1;
+        
+        // r/Piracy Megathread sempre segundo
+        if (a.id === 'piracy-megathread') return -1;
+        if (b.id === 'piracy-megathread') return 1;
+        
+        // Resto em ordem alfabética
+        return a.title.localeCompare(b.title);
+    });
     
     grid.innerHTML = sortedUtilities.map(utility => `
         <article class="utility-card" data-id="${utility.id}">
