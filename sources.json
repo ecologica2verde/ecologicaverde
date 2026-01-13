@@ -3,7 +3,7 @@
     {
       "id": "byxatab",
       "name": "ByXATAB",
-      "shortName": "<b>[Donate Link](https://byxatab.com/donate.html)</b>",
+      "shortName": "<a href=\"https://byxatab.com/donate.html\" target=\"_blank\" style=\"color: #4caf50; text-decoration: none; font-weight: 500;\">Donate link</a>",
       "filename": "ByXATAB",
       "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
       "status": "trusted",
@@ -25,7 +25,7 @@
     {
       "id": "dodi",
       "name": "DODI Repacks",
-      "shortName": "<b>[Donate Link](https://dodi-repacks.site/donate/)</b>",
+      "shortName": "<a href=\"https://dodi-repacks.site/donate/\" target=\"_blank\" style=\"color: #4caf50; text-decoration: none; font-weight: 500;\">Donate link</a>",
       "filename": "DODI Repack",
       "description": "Repacks de jogos de alta qualidade com foco em compressão e confiabilidade. Conhecido por Repacks de instalação rápida e segura, com um launcher com design peculiar.",
       "status": "trusted",
@@ -47,7 +47,7 @@
     {
       "id": "ecologica",
       "name": "Ecológica Verde",
-      "shortName": "Projeto sem fins lucrativo.",
+      "shortName": "Projeto sem fins lucrativo",
       "filename": "Ecológica Verde",
       "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
       "status": "verified",
@@ -69,7 +69,7 @@
     {
       "id": "fitgirl",
       "name": "FitGirl Repacks",
-      "shortName": "<b>[Donate Link](https://fitgirl-repacks.site/donations/)</b>",
+      "shortName": "<a href=\"https://fitgirl-repacks.site/donations/\" target=\"_blank\" style=\"color: #4caf50; text-decoration: none; font-weight: 500;\">Donate link</a>",
       "filename": "FitGirl Repack",
       "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
       "status": "trusted",
@@ -91,7 +91,7 @@
     {
       "id": "gog",
       "name": "Free PC GOG Games",
-      "shortName": "<b>[Donate Link](https://freegogpcgames.com/contact/)</b>",
+      "shortName": "<a href=\"https://freegogpcgames.com/contact/\" target=\"_blank\" style=\"color: #4caf50; text-decoration: none; font-weight: 500;\">Donate link</a>",
       "filename": "FreePCGOGGames",
       "description": "Jogos sem DRM da plataforma GOG, preservados com todo o conteúdo bônus. Foco na qualidade e segurança.",
       "status": "trusted",
@@ -113,7 +113,7 @@
     {
       "id": "onlinefix",
       "name": "OnlineFixMe",
-      "shortName": "<b>[Donate Link](https://www.donationalerts.com/r/online_fix_me)</b>",
+      "shortName": "<a href=\"https://www.donationalerts.com/r/online_fix_me\" target=\"_blank\" style=\"color: #4caf50; text-decoration: none; font-weight: 500;\">Donate link</a>",
       "filename": "OnlineFixMe",
       "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
       "status": "trusted",

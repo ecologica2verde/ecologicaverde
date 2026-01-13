@@ -441,17 +441,41 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Card Description - REMOVIDA */
-/* .card-description {
-    font-size: 13px;
-    color: #b0b0b0;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-} */
+/* Donate and Safety Links Container */
+.donate-safety-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
 
-/* Pros & Cons - MODIFICADO: Agora em coluna (um em cima do outro) */
+.link-item {
+    display: flex;
+    align-items: center;
+}
+
+.safety-link {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.safety-link:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: #66bb6a;
+}
+
+.safety-link i {
+    font-size: 10px;
+}
+
+/* Pros & Cons */
 .card-pros-cons {
     background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;

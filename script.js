@@ -15,15 +15,6 @@ const CONFIG = {
         'onlinefix': { type: 'online', icon: 'fa-wifi' }
     },
     
-    recommendations: {
-        'byxatab': 5,
-        'fitgirl': 5,
-        'onlinefix': 5,
-        'dodi': 4,
-        'ecologica': 4,
-        'gog': 4
-    },
-    
     sourceUrls: {
         'byxatab': '#',
         'dodi': '#',
@@ -33,13 +24,22 @@ const CONFIG = {
         'onlinefix': '#'
     },
     
-    safetyUrls: {
+    sourceSafetyLinks: {
         'byxatab': 'https://www.urlvoid.com/scan/byxatab.com/',
         'dodi': 'https://www.urlvoid.com/scan/dodi-repacks.site/',
+        'ecologica': 'https://www.urlvoid.com/scan/ecologica2verde.vercel.app/',
         'fitgirl': 'https://www.urlvoid.com/scan/fitgirl-repacks.site/',
         'gog': 'https://www.urlvoid.com/scan/freegogpcgames.com/',
-        'onlinefix': 'https://www.urlvoid.com/scan/online-fix.me/',
-        'ecologica': null
+        'onlinefix': 'https://www.urlvoid.com/scan/online-fix.me/'
+    },
+    
+    recommendations: {
+        'byxatab': 5,
+        'dodi': 4,
+        'ecologica': 4,
+        'fitgirl': 5,
+        'gog': 4,
+        'onlinefix': 5
     },
     
     guides: [
@@ -119,22 +119,6 @@ const CONFIG = {
     
     utilities: [
         {
-            id: 'fmhy',
-            emoji: '➡️',
-            icon: 'fa-external-link-alt',
-            title: 'FMHY: Freemediaheckyeah',
-            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
-            url: 'https://fmhy.net/'
-        },
-        {
-            id: 'piracy-megathread',
-            emoji: '💬',
-            icon: 'fa-reddit',
-            title: 'r/Piracy Megathread',
-            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
-            url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
-        },
-        {
             id: 'adguard-vpn',
             emoji: '⛔',
             icon: 'fa-user-shield',
@@ -149,6 +133,22 @@ const CONFIG = {
             title: 'Cobalt Tools',
             description: 'Ferramentas para download de mídia de várias plataformas.',
             url: 'https://cobalt.tools/'
+        },
+        {
+            id: 'fmhy',
+            emoji: '➡️',
+            icon: 'fa-external-link-alt',
+            title: 'FMHY: Freemediaheckyeah',
+            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
+            url: 'https://fmhy.net/'
+        },
+        {
+            id: 'piracy-megathread',
+            emoji: '💬',
+            icon: 'fa-reddit',
+            title: 'r/Piracy Megathread',
+            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
+            url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
         },
         {
             id: 'rentry',
@@ -219,19 +219,19 @@ async function initializeApp() {
         const response = await fetch('sources.json');
         const data = await response.json();
         
-        // Ordenar fontes alfabeticamente
-        const sortedSources = data.sources.sort((a, b) => a.name.localeCompare(b.name));
-        
-        state.sources = sortedSources.map(source => ({
+        state.sources = data.sources.map(source => ({
             ...source,
             type: CONFIG.sourceTypes[source.id]?.type || 'other',
             icon: CONFIG.sourceTypes[source.id]?.icon || 'fa-gamepad',
             stars: CONFIG.recommendations[source.id] || 0,
             url: CONFIG.sourceUrls[source.id] || '#',
-            safetyUrl: CONFIG.safetyUrls[source.id] || null,
+            safetyLink: CONFIG.sourceSafetyLinks[source.id] || '#',
             pros: (source.pros || []).slice(0, 3),
             cons: (source.cons || []).slice(0, 3)
         }));
+        
+        // Ordenar alfabeticamente por padrão
+        state.sources.sort((a, b) => a.name.localeCompare(b.name));
         
         state.filteredSources = [...state.sources];
         renderSources();
@@ -672,7 +672,18 @@ function renderSources() {
                 </div>
                 <div class="card-title">
                     <h3>${source.name}</h3>
-                    <div class="card-subtitle">${source.shortName}</div>
+                    <div class="card-subtitle">
+                        <div class="donate-safety-links">
+                            <div class="link-item">
+                                ${source.shortName}
+                            </div>
+                            <div class="link-item">
+                                <a href="${source.safetyLink}" class="safety-link" target="_blank">
+                                    <i class="fas fa-shield-alt"></i> URL Safely
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -735,47 +746,11 @@ function renderSources() {
 function convertMarkdownLinks() {
     document.querySelectorAll('.card-subtitle').forEach(subtitle => {
         const html = subtitle.innerHTML;
-        // Processar as URLs de segurança
-        let processedHtml = html;
-        
-        // Para cada fonte com URL de segurança
-        Object.keys(CONFIG.safetyUrls).forEach(sourceId => {
-            const safetyUrl = CONFIG.safetyUrls[sourceId];
-            if (safetyUrl) {
-                const source = state.sources.find(s => s.id === sourceId);
-                if (source && source.shortName.includes('[Donate Link]')) {
-                    // Adicionar URL Safely ao lado do Donate Link
-                    const donatePattern = /<b>\[Donate Link\]\(([^)]+)\)<\/b>/;
-                    if (donatePattern.test(processedHtml)) {
-                        processedHtml = processedHtml.replace(
-                            donatePattern,
-                            `<div class="donate-safety-container">
-                                <div class="donate-link">
-                                    <b><a href="$1" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">Donate Link</a></b>
-                                </div>
-                                <div class="safety-link">
-                                    <b><a href="${safetyUrl}" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">URL Safely</a></b>
-                                </div>
-                            </div>`
-                        );
-                    }
-                }
-            }
-        });
-        
-        // Para Ecológica Verde (sem URL Safely)
-        if (processedHtml.includes('Projeto sem fins lucrativos')) {
-            processedHtml = processedHtml.replace(
-                'Projeto sem fins lucrativos.',
-                '<div class="donate-safety-container" style="justify-content: center;">
-                    <div class="project-info-text">
-                        Projeto sem fins lucrativos
-                    </div>
-                </div>'
-            );
-        }
-        
-        subtitle.innerHTML = processedHtml;
+        const converted = html.replace(
+            /\[([^\]]+)\]\(([^)]+)\)/g, 
+            '<a href="$2" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">$1</a>'
+        );
+        subtitle.innerHTML = converted;
     });
 }
 
@@ -848,7 +823,10 @@ function loadUtilities() {
         return;
     }
     
-    grid.innerHTML = CONFIG.utilities.map(utility => `
+    // Ordenar utilitários: FMHY primeiro, r/Piracy Megathread segundo, resto alfabeticamente
+    const sortedUtilities = [...CONFIG.utilities];
+    
+    grid.innerHTML = sortedUtilities.map(utility => `
         <article class="utility-card" data-id="${utility.id}">
             <div class="card-header">
                 <div class="card-icon">
