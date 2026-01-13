@@ -131,7 +131,7 @@ const CONFIG = {
             emoji: '💬',
             icon: 'fa-external-link-alt',
             title: 'r/Piracy Megathread',
-            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
+            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit.',
             url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
         },
         {
