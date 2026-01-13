@@ -7,30 +7,39 @@ const CONFIG = {
     },
     
     sourceTypes: {
-        'fitgirl': { type: 'repacks', icon: 'fa-gamepad' },
-        'dodi': { type: 'repacks', icon: 'fa-gamepad' },
         'byxatab': { type: 'repacks', icon: 'fa-gamepad' },
-        'onlinefix': { type: 'online', icon: 'fa-wifi' },
+        'dodi': { type: 'repacks', icon: 'fa-gamepad' },
+        'ecologica': { type: 'repacks', icon: 'fa-leaf' },
+        'fitgirl': { type: 'repacks', icon: 'fa-gamepad' },
         'gog': { type: 'gog', icon: 'fa-gamepad' },
-        'ecologica': { type: 'repacks', icon: 'fa-leaf' }
+        'onlinefix': { type: 'online', icon: 'fa-wifi' }
     },
     
     recommendations: {
-        'fitgirl': 5,
         'byxatab': 5,
+        'fitgirl': 5,
         'onlinefix': 5,
         'dodi': 4,
-        'gog': 4,
-        'ecologica': 4
+        'ecologica': 4,
+        'gog': 4
     },
     
     sourceUrls: {
-        'fitgirl': '#',
-        'dodi': '#',
         'byxatab': '#',
-        'onlinefix': '#',
+        'dodi': '#',
+        'ecologica': '#',
+        'fitgirl': '#',
         'gog': '#',
-        'ecologica': '#'
+        'onlinefix': '#'
+    },
+    
+    safetyUrls: {
+        'byxatab': 'https://www.urlvoid.com/scan/byxatab.com/',
+        'dodi': 'https://www.urlvoid.com/scan/dodi-repacks.site/',
+        'fitgirl': 'https://www.urlvoid.com/scan/fitgirl-repacks.site/',
+        'gog': 'https://www.urlvoid.com/scan/freegogpcgames.com/',
+        'onlinefix': 'https://www.urlvoid.com/scan/online-fix.me/',
+        'ecologica': null
     },
     
     guides: [
@@ -118,12 +127,12 @@ const CONFIG = {
             url: 'https://fmhy.net/'
         },
         {
-            id: 'ublock',
-            emoji: '🚫',
-            icon: 'fa-shield-alt',
-            title: 'uBlock Origin',
-            description: 'Extensão de navegador para bloquear anúncios e rastreadores.',
-            url: 'https://ublockorigin.com/'
+            id: 'piracy-megathread',
+            emoji: '💬',
+            icon: 'fa-reddit',
+            title: 'r/Piracy Megathread',
+            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit',
+            url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
         },
         {
             id: 'adguard-vpn',
@@ -164,6 +173,14 @@ const CONFIG = {
             title: 'E-mail Temporário',
             description: 'Serviço de e-mail temporário para registros e verificações.',
             url: 'https://adguard.com/pt_br/adguard-temp-mail/overview.html'
+        },
+        {
+            id: 'ublock',
+            emoji: '🚫',
+            icon: 'fa-shield-alt',
+            title: 'uBlock Origin',
+            description: 'Extensão de navegador para bloquear anúncios e rastreadores.',
+            url: 'https://ublockorigin.com/'
         }
     ]
 };
@@ -202,12 +219,16 @@ async function initializeApp() {
         const response = await fetch('sources.json');
         const data = await response.json();
         
-        state.sources = data.sources.map(source => ({
+        // Ordenar fontes alfabeticamente
+        const sortedSources = data.sources.sort((a, b) => a.name.localeCompare(b.name));
+        
+        state.sources = sortedSources.map(source => ({
             ...source,
             type: CONFIG.sourceTypes[source.id]?.type || 'other',
             icon: CONFIG.sourceTypes[source.id]?.icon || 'fa-gamepad',
             stars: CONFIG.recommendations[source.id] || 0,
             url: CONFIG.sourceUrls[source.id] || '#',
+            safetyUrl: CONFIG.safetyUrls[source.id] || null,
             pros: (source.pros || []).slice(0, 3),
             cons: (source.cons || []).slice(0, 3)
         }));
@@ -475,7 +496,7 @@ function toggleComparison(sourceId) {
     
     if (index === -1) {
         if (state.comparingSources.length >= 2) {
-            showNotification('⚠️ Limite Atingido', 'Você só pode comparar 2 fontes por vez.', 'warning');
+            showNotification('⚠️ Limite Atingido', 'Você só pode comparar 2 catálogos por vez.', 'warning');
             return;
         }
         state.comparingSources.push(source);
@@ -495,7 +516,7 @@ function clearComparison() {
     updateComparisonUI();
     updateComparisonInfo();
     renderSources();
-    showNotification('ℹ️ Comparação Limpa', 'Todas as fontes foram removidas da comparação', 'info');
+    showNotification('ℹ️ Comparação Limpa', 'Todos os catálogos foram removidos da comparação', 'info');
 }
 
 function updateComparisonUI() {
@@ -508,8 +529,8 @@ function updateComparisonUI() {
         comparisonContent.innerHTML = `
             <div class="comparison-empty">
                 <i class="fas fa-balance-scale"></i>
-                <p>Selecione 2 fontes para comparar</p>
-                <small>Clique no botão "Comparar" nas fontes que deseja comparar</small>
+                <p>Selecione 2 catálogos para comparar</p>
+                <small>Clique no botão "Comparar" nos catálogos que deseja comparar</small>
             </div>
         `;
         comparisonModal.classList.remove('visible');
@@ -517,8 +538,8 @@ function updateComparisonUI() {
         comparisonContent.innerHTML = `
             <div class="comparison-empty">
                 <i class="fas fa-balance-scale"></i>
-                <p>Selecione mais 1 fonte para comparar</p>
-                <small>Você precisa selecionar 2 fontes para realizar a comparação</small>
+                <p>Selecione mais 1 catálogo para comparar</p>
+                <small>Você precisa selecionar 2 catálogos para realizar a comparação</small>
             </div>
         `;
         comparisonModal.classList.add('visible');
@@ -582,7 +603,7 @@ function updateComparisonUI() {
                             </span>
                         </div>
                         <div class="comparison-detail">
-                            <span class="detail-label">Recomendação</span>
+                            <span class="detail-label">Recomendações</span>
                             <span class="detail-value">
                                 ${getStarsHTML(source2.stars)}
                             </span>
@@ -617,7 +638,7 @@ function updateComparisonInfo() {
     if (!comparisonInfo) return;
     
     if (state.comparingSources.length > 0) {
-        comparisonInfo.textContent = `${state.comparingSources.length}/2 fontes selecionadas para comparação`;
+        comparisonInfo.textContent = `${state.comparingSources.length}/2 catálogos selecionados para comparação`;
         comparisonInfo.classList.add('visible');
     } else {
         comparisonInfo.classList.remove('visible');
@@ -633,7 +654,7 @@ function renderSources() {
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-search"></i>
-                <h3>Nenhuma fonte encontrada</h3>
+                <h3>Nenhum catálogo encontrado</h3>
                 <p>Tente ajustar os filtros</p>
             </div>
         `;
@@ -658,7 +679,7 @@ function renderSources() {
             <div class="card-pros-cons">
                 <div class="pros-cons-header">
                     <i class="fas fa-chart-line"></i>
-                    <h4>Análise da Fonte</h4>
+                    <h4>Análise do Catálogo</h4>
                 </div>
                 <div class="pros-cons-grid">
                     <div class="pros-section">
@@ -714,11 +735,47 @@ function renderSources() {
 function convertMarkdownLinks() {
     document.querySelectorAll('.card-subtitle').forEach(subtitle => {
         const html = subtitle.innerHTML;
-        const converted = html.replace(
-            /\[([^\]]+)\]\(([^)]+)\)/g, 
-            '<a href="$2" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">$1</a>'
-        );
-        subtitle.innerHTML = converted;
+        // Processar as URLs de segurança
+        let processedHtml = html;
+        
+        // Para cada fonte com URL de segurança
+        Object.keys(CONFIG.safetyUrls).forEach(sourceId => {
+            const safetyUrl = CONFIG.safetyUrls[sourceId];
+            if (safetyUrl) {
+                const source = state.sources.find(s => s.id === sourceId);
+                if (source && source.shortName.includes('[Donate Link]')) {
+                    // Adicionar URL Safely ao lado do Donate Link
+                    const donatePattern = /<b>\[Donate Link\]\(([^)]+)\)<\/b>/;
+                    if (donatePattern.test(processedHtml)) {
+                        processedHtml = processedHtml.replace(
+                            donatePattern,
+                            `<div class="donate-safety-container">
+                                <div class="donate-link">
+                                    <b><a href="$1" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">Donate Link</a></b>
+                                </div>
+                                <div class="safety-link">
+                                    <b><a href="${safetyUrl}" target="_blank" style="color: #4caf50; text-decoration: none; font-weight: 500;">URL Safely</a></b>
+                                </div>
+                            </div>`
+                        );
+                    }
+                }
+            }
+        });
+        
+        // Para Ecológica Verde (sem URL Safely)
+        if (processedHtml.includes('Projeto sem fins lucrativos')) {
+            processedHtml = processedHtml.replace(
+                'Projeto sem fins lucrativos.',
+                '<div class="donate-safety-container" style="justify-content: center;">
+                    <div class="project-info-text">
+                        Projeto sem fins lucrativos
+                    </div>
+                </div>'
+            );
+        }
+        
+        subtitle.innerHTML = processedHtml;
     });
 }
 
@@ -837,7 +894,7 @@ function handleAccessSource(sourceId) {
     const source = state.sources.find(s => s.id === sourceId);
     
     if (source.status === 'risk') {
-        showNotification('⚠️ Aviso', 'Esta fonte é classificada como "Com Risco". Proceda com cautela.', 'warning');
+        showNotification('⚠️ Aviso', 'Este catálogo é classificado como "Com Risco". Proceda com cautela.', 'warning');
     }
     
     showNotification(

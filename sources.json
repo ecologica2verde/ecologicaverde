@@ -1,25 +1,25 @@
 {
   "sources": [
     {
-      "id": "fitgirl",
-      "name": "FitGirl Repacks",
-      "shortName": "<b>[Donate Link](https://fitgirl-repacks.site/donations/)</b>",
-      "filename": "FitGirl Repack",
-      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
+      "id": "byxatab",
+      "name": "ByXATAB",
+      "shortName": "<b>[Donate Link](https://byxatab.com/donate.html)</b>",
+      "filename": "ByXATAB",
+      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
+      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "<b>THE Repacker</b>: referência entre os repackers",
-        "Verifica integridade dos arquivos instalados",
-        "Compressão dos arquivos excelente"
+        "Lançamentos em <b>[Game folder]</b>: baixou, jogou",
+        "Faz repacks com compressão baixa/moderada",
+        "Catálogo extenso de jogos"
       ],
       "cons": [
-        "Falhas na instalação por arquivos corrompidos",
-        "Alta utilização da CPU durante instalação",
-        "Instalação pode ser lenta"
+        "Configuração do idioma pode ser complicada",
+        "Jogos dublados só com legendas PT-BR",
+        "Foco no idioma Russo e Inglês"
       ]
     },
     {
@@ -45,47 +45,47 @@
       ]
     },
     {
-      "id": "byxatab",
-      "name": "ByXATAB",
-      "shortName": "<b>[Donate Link](https://byxatab.com/donate.html)</b>",
-      "filename": "ByXATAB",
-      "description": "Site russo conhecido por lançamentos de Repacks e Game Folders, lançamentos de qualidade e instalação rápida. Excelente conteúdo focalizado em Russo e Inglês.",
-      "status": "trusted",
+      "id": "ecologica",
+      "name": "Ecológica Verde",
+      "shortName": "Projeto sem fins lucrativo.",
+      "filename": "Ecológica Verde",
+      "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
+      "status": "verified",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Lançamentos em <b>[Game folder]</b>: baixou, jogou",
-        "Faz repacks com compressão baixa/moderada",
-        "Catálogo extenso de jogos"
+        "Jogos incluídos por pedidos da comunidade",
+        "Curadoria manual (sem web scraping)",
+        "Fontes verificadas e seguras"
       ],
       "cons": [
-        "Configuração do idioma pode ser complicada",
-        "Jogos dublados só com legendas PT-BR",
-        "Foco no idioma Russo e Inglês"
+        "Alguns jogos com pouquíssimos seeders",
+        "Atualizações menos frequentes",
+        "Depende de fontes externas"
       ]
     },
     {
-      "id": "onlinefix",
-      "name": "OnlineFixMe",
-      "shortName": "<b>[Donate Link](https://www.donationalerts.com/r/online_fix_me)</b>",
-      "filename": "OnlineFixMe",
-      "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
+      "id": "fitgirl",
+      "name": "FitGirl Repacks",
+      "shortName": "<b>[Donate Link](https://fitgirl-repacks.site/donations/)</b>",
+      "filename": "FitGirl Repack",
+      "description": "<b>THE Repacker</b>. Excelente qualidade, compressão e total confiabilidade.",
       "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
-        "Pode se jogar em servidores oficiais",
-        "Atualizações são frequentes",
-        "Suporte a multiplayer online"
+        "<b>THE Repacker</b>: referência entre os repackers",
+        "Verifica integridade dos arquivos instalados",
+        "Compressão dos arquivos excelente"
       ],
       "cons": [
-        "Há guias dos jogos fechados permanentemente",
-        "Necessário Steam ou da Epic Games aberto",
-        "Foco do idioma em Russo"
+        "Falhas na instalação por arquivos corrompidos",
+        "Alta utilização da CPU durante instalação",
+        "Instalação pode ser lenta"
       ]
     },
     {
@@ -111,25 +111,25 @@
       ]
     },
     {
-      "id": "ecologica",
-      "name": "Ecológica Verde",
-      "shortName": "Projeto sem fins lucrativo.",
-      "filename": "Ecológica Verde",
-      "description": "Jogos curados diretamente pela equipe da Ecológica Verde com foco em qualidade, compatibilidade e segurança. Fontes verificadas e organizadas manualmente, sem nenhuma utilização de Web Scraping.",
-      "status": "verified",
+      "id": "onlinefix",
+      "name": "OnlineFixMe",
+      "shortName": "<b>[Donate Link](https://www.donationalerts.com/r/online_fix_me)</b>",
+      "filename": "OnlineFixMe",
+      "description": "Correções e Suporte Online para jogos Multiplayer da Steam, Epic Games e Servidores Dedicados. Excelente qualidade e confiabilidade, conhecido por 'joguei 5000 horas de spacewar na Steam'.",
+      "status": "trusted",
       "gameCount": 0,
       "lastUpdated": "",
       "url": "#",
-      "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
+      "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Jogos incluídos por pedidos da comunidade",
-        "Curadoria manual (sem web scraping)",
-        "Fontes verificadas e seguras"
+        "Pode se jogar em servidores oficiais",
+        "Atualizações são frequentes",
+        "Suporte a multiplayer online"
       ],
       "cons": [
-        "Alguns jogos com pouquíssimos seeders",
-        "Atualizações menos frequentes",
-        "Depende de fontes externas"
+        "Há guias dos jogos fechados permanentemente",
+        "Necessário Steam ou da Epic Games aberto",
+        "Foco do idioma em Russo"
       ]
     }
   ],
