@@ -1,3 +1,4 @@
+/* ===== RESET & BASE ===== */
 * {
     margin: 0;
     padding: 0;
@@ -19,22 +20,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ===== LAYOUT CONTAINER ===== */
 .app-container {
     display: flex;
     height: 100vh;
     max-height: 1080px;
     min-height: 900px;
-    background: transparent;
+    background: #0a0a0a;
 }
 
+/* ===== SIDEBARS ===== */
 .sidebar {
     width: 280px;
-    background: rgba(17, 17, 17, 0.98);
+    background: #111111;
     border-right: 1px solid #1a1a1a;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    backdrop-filter: blur(15px);
 }
 
 .right-sidebar {
@@ -50,6 +52,7 @@ body {
     overflow-y: auto;
 }
 
+/* ===== LEFT SIDEBAR SPECIFIC ===== */
 .sidebar-header {
     margin-bottom: 32px;
 }
@@ -95,6 +98,7 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* ===== NAVIGATION ===== */
 .nav-section {
     margin-bottom: 32px;
 }
@@ -181,6 +185,7 @@ body {
     z-index: 1;
 }
 
+/* ===== PROJECT INFO ===== */
 .project-info {
     background: rgba(76, 175, 80, 0.05);
     border: 1px solid rgba(76, 175, 80, 0.1);
@@ -200,6 +205,7 @@ body {
     color: #4caf50;
 }
 
+/* ===== SOCIAL LINKS FOOTER ===== */
 .sidebar-footer {
     margin-top: auto;
     padding-top: 24px;
@@ -278,10 +284,11 @@ body {
     font-size: 10px;
 }
 
+/* ===== MAIN CONTENT ===== */
 .main-content {
     flex: 1;
     overflow-y: auto;
-    background: transparent;
+    background: #0a0a0a;
 }
 
 .content-wrapper {
@@ -297,6 +304,7 @@ body {
     display: block;
 }
 
+/* ===== CONTENT HEADER ===== */
 .content-header {
     margin-bottom: 32px;
     display: flex;
@@ -324,6 +332,7 @@ body {
     font-weight: 400;
 }
 
+/* ===== SOURCES GRID ===== */
 .sources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -331,8 +340,9 @@ body {
     margin-bottom: 40px;
 }
 
+/* ===== SOURCE CARDS ===== */
 .source-card {
-    background: rgba(17, 17, 17, 0.98);
+    background: #111111;
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 24px;
@@ -342,7 +352,6 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(15px);
 }
 
 .source-card::before {
@@ -361,13 +370,14 @@ body {
 .source-card:hover {
     border-color: #2a2a2a;
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .source-card:hover::before {
     opacity: 1;
 }
 
+/* Card Header */
 .card-header {
     display: flex;
     align-items: flex-start;
@@ -412,6 +422,7 @@ body {
     letter-spacing: 0.3px;
 }
 
+/* Donate and Safety Links Container */
 .donate-safety-links {
     display: flex;
     align-items: center;
@@ -436,20 +447,7 @@ body {
     color: #66bb6a;
 }
 
-.games-count {
-    color: #4caf50;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-    background: rgba(76, 175, 80, 0.15);
-    padding: 2px 8px;
-    border-radius: 12px;
-    border: 1px solid rgba(76, 175, 80, 0.3);
-    min-width: 40px;
-    text-align: center;
-    display: inline-block;
-}
-
+/* Pros & Cons */
 .card-pros-cons {
     background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;
@@ -479,6 +477,7 @@ body {
     color: #ffffff;
 }
 
+/* MODIFICADO: Agora em coluna vertical */
 .pros-cons-grid {
     display: flex;
     flex-direction: column;
@@ -550,11 +549,13 @@ body {
     font-weight: bold;
 }
 
+/* Estilo para texto em negrito dentro dos prós e contras */
 .pros-list li strong, .cons-list li strong {
     color: #ffffff;
     font-weight: 600;
 }
 
+/* Card Meta */
 .card-meta {
     display: flex;
     align-items: center;
@@ -598,6 +599,7 @@ body {
     color: #f44336;
 }
 
+/* Stars */
 .stars {
     display: flex;
     gap: 2px;
@@ -609,6 +611,7 @@ body {
     font-size: 12px;
 }
 
+/* Card Actions */
 .card-actions {
     display: flex;
     gap: 12px;
@@ -662,8 +665,9 @@ body {
     min-width: 140px;
 }
 
+/* ===== GUIDE CARDS & UTILITY CARDS ===== */
 .guide-card, .utility-card {
-    background: rgba(17, 17, 17, 0.98);
+    background: #111111;
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 24px;
@@ -673,7 +677,6 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(15px);
 }
 
 .guide-card::before, .utility-card::before {
@@ -692,13 +695,14 @@ body {
 .guide-card:hover, .utility-card:hover {
     border-color: #2a2a2a;
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .guide-card:hover::before, .utility-card:hover::before {
     opacity: 1;
 }
 
+/* Card Description para Guias e Utilitários (mantido) */
 .guide-card .card-description,
 .utility-card .card-description {
     font-size: 13px;
@@ -710,11 +714,11 @@ body {
     flex-grow: 1;
 }
 
+/* ===== RIGHT SIDEBAR FILTERS ===== */
 .filters-sidebar {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateX(0);
-    backdrop-filter: blur(15px);
 }
 
 .filters-sidebar.hidden {
@@ -731,6 +735,7 @@ body {
     letter-spacing: -0.3px;
 }
 
+/* ===== SEARCH BAR ===== */
 .search-container {
     margin-bottom: 24px;
 }
@@ -745,7 +750,6 @@ body {
     font-size: 13px;
     font-family: 'Inter', sans-serif;
     transition: all 0.2s ease;
-    backdrop-filter: blur(5px);
 }
 
 .search-input::placeholder {
@@ -797,7 +801,6 @@ body {
     font-size: 13px;
     font-family: inherit;
     position: relative;
-    backdrop-filter: blur(5px);
 }
 
 .filter-option::before {
@@ -851,6 +854,7 @@ body {
     z-index: 1;
 }
 
+/* ===== FILTERS FOOTER ===== */
 .filters-footer {
     padding-top: 24px;
     border-top: 1px solid #1a1a1a;
@@ -870,7 +874,6 @@ body {
     transition: all 0.2s ease;
     width: 100%;
     justify-content: center;
-    backdrop-filter: blur(5px);
 }
 
 .reset-filters:hover {
@@ -879,6 +882,7 @@ body {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
+/* ===== LOADING STATE ===== */
 .loading-state {
     grid-column: 1 / -1;
     display: flex;
@@ -887,10 +891,6 @@ body {
     justify-content: center;
     padding: 80px 40px;
     text-align: center;
-    background: rgba(17, 17, 17, 0.98);
-    border: 1px solid #1a1a1a;
-    border-radius: 12px;
-    backdrop-filter: blur(15px);
 }
 
 .loading-spinner {
@@ -908,6 +908,7 @@ body {
     font-size: 13px;
 }
 
+/* ===== NO RESULTS ===== */
 .no-results {
     grid-column: 1 / -1;
     display: flex;
@@ -916,10 +917,9 @@ body {
     justify-content: center;
     padding: 80px 40px;
     text-align: center;
-    background: rgba(17, 17, 17, 0.98);
+    background: #111111;
     border: 1px solid #1a1a1a;
     border-radius: 12px;
-    backdrop-filter: blur(15px);
 }
 
 .no-results i {
@@ -941,6 +941,8 @@ body {
     max-width: 300px;
 }
 
+/* ===== SCROLLBAR MANAGEMENT ===== */
+/* Scrollbar padrão apenas para a seção de Fontes */
 #sources-section .sources-grid {
     max-height: none;
     overflow-y: visible;
@@ -952,6 +954,7 @@ body {
     overflow-y: visible !important;
 }
 
+/* Remove scrollbar das outras seções */
 #guides-section .sources-grid,
 #utilities-section .sources-grid,
 #dmca-section .sources-grid {
@@ -959,6 +962,7 @@ body {
     overflow-y: visible;
 }
 
+/* Classes para controle de scrollbar */
 .no-scrollbar .sources-grid {
     max-height: none;
     overflow-y: visible;
@@ -973,17 +977,17 @@ body {
     scrollbar-width: none;
 }
 
+/* ===== DMCA CONTENT ===== */
 .dmca-content {
     max-width: 100%;
 }
 
 .dmca-card {
-    background: rgba(17, 17, 17, 0.98);
+    background: #111111;
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 32px;
     margin-bottom: 24px;
-    backdrop-filter: blur(15px);
 }
 
 .dmca-card h3 {
@@ -1021,7 +1025,6 @@ body {
     background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
 }
 
 .legal-point i {
@@ -1053,7 +1056,6 @@ body {
     border: 1px solid rgba(255, 193, 7, 0.2);
     border-radius: 8px;
     margin: 24px 0;
-    backdrop-filter: blur(5px);
 }
 
 .notice-box i {
@@ -1075,10 +1077,12 @@ body {
     margin: 0;
 }
 
+/* ===== ANIMATIONS ===== */
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1400px) {
     .sidebar {
         width: 260px;
@@ -1103,6 +1107,11 @@ body {
     }
 }
 
+@media (max-width: 992px) {
+    /* Não precisa mais de regra para pros-cons-grid pois já está em coluna */
+}
+
+/* Hide scrollbars but keep functionality */
 .sidebar-content::-webkit-scrollbar,
 .main-content::-webkit-scrollbar {
     width: 6px;

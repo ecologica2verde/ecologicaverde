@@ -1,4 +1,4 @@
-# 🌿 Ecológica Verde - Indexador de Links Públicos
+# 🌿 Ecológica Verde 🌿
 
 Um projeto **open-source** e **sem fins lucrativos** que atua como indexador de links públicos com curadoria especializada.
 
