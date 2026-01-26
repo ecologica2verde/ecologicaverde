@@ -942,7 +942,7 @@ body {
 }
 
 /* ===== SCROLLBAR MANAGEMENT ===== */
-/* Scrollbar padrão apenas para a seção de Fontes */
+/* Scrollbar apenas para a seção de Fontes */
 #sources-section .sources-grid {
     max-height: none;
     overflow-y: visible;
@@ -960,6 +960,28 @@ body {
 #dmca-section .sources-grid {
     max-height: none;
     overflow-y: visible;
+}
+
+/* Scrollbar no main-content para todas as seções */
+.main-content {
+    overflow-y: auto;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Classes para controle de scrollbar */

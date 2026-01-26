@@ -473,7 +473,6 @@ function renderSources() {
     }
     
     grid.innerHTML = state.filteredSources.map(source => {
-        // Verifica se é a Ecológica Verde para mostrar texto diferente
         const isEcologica = source.id === 'ecologica';
         
         return `
@@ -492,6 +491,8 @@ function renderSources() {
                             }
                             <span class="divider">|</span>
                             <a href="${source.safetyLink}" class="link-text" target="_blank">URL Safely</a>
+                            <span class="divider">|</span>
+                            <span>${source.gameCount || 0}</span>
                         </div>
                     </div>
                 </div>
@@ -721,11 +722,6 @@ function showSourceDetails(sourceId) {
                             <div class="stars">
                                 ${getStarsHTML(source.stars)}
                             </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <label>Descrição</label>
-                            <p>${source.description}</p>
                         </div>
                         
                         <div class="info-item">
