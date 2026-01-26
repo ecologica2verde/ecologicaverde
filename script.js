@@ -2,7 +2,7 @@
 const CONFIG = {
     statusLabels: {
         'trusted': { label: 'Confiável', class: 'status-trusted', icon: 'fa-shield-alt' },
-        'verified': { label: 'Verificada e Segura', class: 'status-verified', icon: 'fa-check-circle' },
+        'verified': { label: 'Seguro para Uso', class: 'status-verified', icon: 'fa-check-circle' },
         'risk': { label: 'Com Risco', class: 'status-risk', icon: 'fa-exclamation-triangle' }
     },
     
@@ -193,11 +193,9 @@ let state = {
         search: '',
         status: 'all',
         type: 'all',
-        stars: 'all',
         sort: 'name'
     },
     currentSection: 'sources',
-    comparingSources: [],
     filtersInitialized: false,
     isChangingSection: false
 };
@@ -210,7 +208,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadGuides();
     loadUtilities();
     setupCardEffects();
-    setupComparison();
     updateScrollbarVisibility();
 });
 
@@ -290,7 +287,6 @@ function setupNavigation() {
             }
             
             state.currentSection = section;
-            updateComparisonInfo();
             updateScrollbarVisibility();
         });
     });
@@ -365,39 +361,31 @@ function setupFilterListeners() {
         });
     });
     
-    document.querySelectorAll('[data-stars]').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const stars = e.currentTarget.dataset.stars;
-            state.filters.stars = stars;
-            
-            document.querySelectorAll('[data-stars]').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            e.currentTarget.classList.add('active');
-            
-            applyFilters();
-        });
-    });
-    
     const resetBtn = document.getElementById('resetFilters');
     const newResetBtn = resetBtn.cloneNode(true);
     resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
     
     newResetBtn.addEventListener('click', resetFilters);
-}
-
-// ===== SETUP EVENT LISTENERS =====
-function setupEventListeners() {
-    if (state.currentSection === 'sources') {
-        setupFilterListeners();
-    }
     
-    setupComparison();
+    const searchInput = document.getElementById('searchInput');
+    const newSearchInput = searchInput.cloneNode(true);
+    searchInput.parentNode.replaceChild(newSearchInput, searchInput);
+    
+    newSearchInput.addEventListener('input', (e) => {
+        state.filters.search = e.target.value.toLowerCase();
+        applyFilters();
+    });
 }
 
 function applyFilters() {
     let filtered = [...state.sources];
+    
+    if (state.filters.search) {
+        filtered = filtered.filter(source => 
+            source.name.toLowerCase().includes(state.filters.search) ||
+            source.shortName.toLowerCase().includes(state.filters.search)
+        );
+    }
     
     if (state.filters.status !== 'all') {
         filtered = filtered.filter(source => source.status === state.filters.status);
@@ -416,11 +404,6 @@ function applyFilters() {
         } else {
             filtered = filtered.filter(source => source.type === state.filters.type);
         }
-    }
-    
-    if (state.filters.stars !== 'all') {
-        const starCount = parseInt(state.filters.stars);
-        filtered = filtered.filter(source => source.stars === starCount);
     }
     
     filtered.sort((a, b) => {
@@ -447,7 +430,6 @@ function resetFilters() {
         search: '',
         status: 'all',
         type: 'all',
-        stars: 'all',
         sort: 'name'
     };
     
@@ -455,193 +437,22 @@ function resetFilters() {
         btn.classList.remove('active');
     });
     
-    document.querySelectorAll('[data-sort="name"], [data-type="all"], [data-status="all"], [data-stars="all"]').forEach(btn => {
+    document.querySelectorAll('[data-sort="name"], [data-type="all"], [data-status="all"]').forEach(btn => {
         btn.classList.add('active');
     });
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+    }
     
     applyFilters();
 }
 
-// ===== COMPARAÇÃO DE FONTES =====
-function setupComparison() {
-    const closeBtn = document.getElementById('closeComparison');
-    if (closeBtn) {
-        const newCloseBtn = closeBtn.cloneNode(true);
-        closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
-        
-        newCloseBtn.addEventListener('click', () => {
-            document.getElementById('comparisonModal').classList.remove('visible');
-        });
-    }
-    
-    const clearBtn = document.getElementById('clearComparison');
-    if (clearBtn) {
-        const newClearBtn = clearBtn.cloneNode(true);
-        clearBtn.parentNode.replaceChild(newClearBtn, clearBtn);
-        
-        newClearBtn.addEventListener('click', clearComparison);
-    }
-    
-    document.addEventListener('click', (e) => {
-        const modal = document.getElementById('comparisonModal');
-        if (e.target === modal) {
-            modal.classList.remove('visible');
-        }
-    });
-}
-
-function toggleComparison(sourceId) {
-    const source = state.sources.find(s => s.id === sourceId);
-    const index = state.comparingSources.findIndex(s => s.id === sourceId);
-    
-    if (index === -1) {
-        if (state.comparingSources.length >= 2) {
-            showNotification('⚠️ Limite Atingido', 'Você só pode comparar 2 catálogos por vez.', 'warning');
-            return;
-        }
-        state.comparingSources.push(source);
-        showNotification('✓ Adicionado', `${source.name} adicionado à comparação`, 'success');
-    } else {
-        state.comparingSources.splice(index, 1);
-        showNotification('ℹ️ Removido', `${source.name} removido da comparação`, 'info');
-    }
-    
-    updateComparisonUI();
-    updateComparisonInfo();
-    renderSources();
-}
-
-function clearComparison() {
-    state.comparingSources = [];
-    updateComparisonUI();
-    updateComparisonInfo();
-    renderSources();
-    showNotification('ℹ️ Comparação Limpa', 'Todos os catálogos foram removidos da comparação', 'info');
-}
-
-function updateComparisonUI() {
-    const comparisonContent = document.getElementById('comparisonContent');
-    const comparisonModal = document.getElementById('comparisonModal');
-    
-    if (!comparisonContent) return;
-    
-    if (state.comparingSources.length === 0) {
-        comparisonContent.innerHTML = `
-            <div class="comparison-empty">
-                <i class="fas fa-balance-scale"></i>
-                <p>Selecione 2 catálogos para comparar</p>
-                <small>Clique no botão "Comparar" nos catálogos que deseja comparar</small>
-            </div>
-        `;
-        comparisonModal.classList.remove('visible');
-    } else if (state.comparingSources.length === 1) {
-        comparisonContent.innerHTML = `
-            <div class="comparison-empty">
-                <i class="fas fa-balance-scale"></i>
-                <p>Selecione mais 1 catálogo para comparar</p>
-                <small>Você precisa selecionar 2 catálogos para realizar a comparação</small>
-            </div>
-        `;
-        comparisonModal.classList.add('visible');
-    } else {
-        const [source1, source2] = state.comparingSources;
-        
-        comparisonContent.innerHTML = `
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <div class="comparison-card-header">
-                        <h4>${source1.name}</h4>
-                        <button class="remove-comparison" onclick="toggleComparison('${source1.id}')">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="comparison-details">
-                        <div class="comparison-detail">
-                            <span class="detail-label">Status</span>
-                            <span class="detail-value ${CONFIG.statusLabels[source1.status]?.class || 'status-trusted'}">
-                                ${CONFIG.statusLabels[source1.status]?.label || 'Confiável'}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Recomendação</span>
-                            <span class="detail-value">
-                                ${getStarsHTML(source1.stars)}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Tipo</span>
-                            <span class="detail-value">
-                                ${source1.type === 'repacks' ? 'Repacks' : 
-                                  source1.type === 'gog' ? 'GOG Games' :
-                                  source1.type === 'online' ? 'Multiplayer Online' :
-                                  source1.type === 'folder' ? 'Game Folder' : 'Outro'}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Prós</span>
-                            <span class="detail-value">${source1.pros.length}</span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Contras</span>
-                            <span class="detail-value">${source1.cons.length}</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="comparison-card">
-                    <div class="comparison-card-header">
-                        <h4>${source2.name}</h4>
-                        <button class="remove-comparison" onclick="toggleComparison('${source2.id}')">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="comparison-details">
-                        <div class="comparison-detail">
-                            <span class="detail-label">Status</span>
-                            <span class="detail-value ${CONFIG.statusLabels[source2.status]?.class || 'status-trusted'}">
-                                ${CONFIG.statusLabels[source2.status]?.label || 'Confiável'}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Recomendação</span>
-                            <span class="detail-value">
-                                ${getStarsHTML(source2.stars)}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Tipo</span>
-                            <span class="detail-value">
-                                ${source2.type === 'repacks' ? 'Repacks' : 
-                                  source2.type === 'gog' ? 'GOG Games' :
-                                  source2.type === 'online' ? 'Multiplayer Online' :
-                                  source2.type === 'folder' ? 'Game Folder' : 'Outro'}
-                            </span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Prós</span>
-                            <span class="detail-value">${source2.pros.length}</span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="detail-label">Contras</span>
-                            <span class="detail-value">${source2.cons.length}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        comparisonModal.classList.add('visible');
-    }
-}
-
-function updateComparisonInfo() {
-    const comparisonInfo = document.getElementById('comparisonInfo');
-    if (!comparisonInfo) return;
-    
-    if (state.comparingSources.length > 0) {
-        comparisonInfo.textContent = `${state.comparingSources.length}/2 catálogos selecionados para comparação`;
-        comparisonInfo.classList.add('visible');
-    } else {
-        comparisonInfo.classList.remove('visible');
+// ===== SETUP EVENT LISTENERS =====
+function setupEventListeners() {
+    if (state.currentSection === 'sources') {
+        setupFilterListeners();
     }
 }
 
@@ -655,20 +466,18 @@ function renderSources() {
             <div class="no-results">
                 <i class="fas fa-search"></i>
                 <h3>Nenhum catálogo encontrado</h3>
-                <p>Tente ajustar os filtros</p>
+                <p>Tente ajustar os filtros ou a pesquisa</p>
             </div>
         `;
         return;
     }
     
     grid.innerHTML = state.filteredSources.map(source => {
-        const isComparing = state.comparingSources.some(s => s.id === source.id);
-        
         // Verifica se é a Ecológica Verde para mostrar texto diferente
         const isEcologica = source.id === 'ecologica';
         
         return `
-        <article class="source-card ${isComparing ? 'comparing' : ''}" data-id="${source.id}">
+        <article class="source-card" data-id="${source.id}">
             <div class="card-header">
                 <div class="card-icon">
                     <i class="fas ${source.icon}"></i>
@@ -731,10 +540,6 @@ function renderSources() {
                 <button class="btn btn-primary" onclick="handleAccessSource('${source.id}')">
                     <i class="fas fa-external-link-alt"></i>
                     Acessar Catálogo
-                </button>
-                <button class="btn btn-comparison ${isComparing ? 'comparing' : ''}" onclick="toggleComparison('${source.id}')">
-                    <i class="fas ${isComparing ? 'fa-check' : 'fa-balance-scale'}"></i>
-                    ${isComparing ? 'Comparando' : 'Comparar'}
                 </button>
             </div>
         </article>
@@ -1026,5 +831,3 @@ function showNotification(title, message, type = 'info') {
 window.handleAccessSource = handleAccessSource;
 window.showSourceDetails = showSourceDetails;
 window.closeModal = closeModal;
-window.toggleComparison = toggleComparison;
-window.clearComparison = clearComparison;

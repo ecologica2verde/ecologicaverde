@@ -104,7 +104,6 @@
                         <h2 class="content-title">Catálogos Disponíveis</h2>
                         <div class="content-stats">
                             <span class="content-stat">6 catálogos indexados</span>
-                            <span class="comparison-info" id="comparisonInfo"></span>
                         </div>
                     </div>
                     
@@ -113,26 +112,6 @@
                         <div class="loading-state">
                             <div class="loading-spinner"></div>
                             <p>Carregando catálogos...</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Comparison Modal -->
-                    <div class="comparison-modal" id="comparisonModal">
-                        <div class="comparison-header">
-                            <h3><i class="fas fa-balance-scale"></i> Comparação de Catálogos</h3>
-                            <button class="comparison-close" id="closeComparison">&times;</button>
-                        </div>
-                        <div class="comparison-content" id="comparisonContent">
-                            <div class="comparison-empty">
-                                <i class="fas fa-balance-scale"></i>
-                                <p>Selecione 2 catálogos para comparar</p>
-                                <small>Clique no botão "Comparar" nos catálogos que deseja comparar</small>
-                            </div>
-                        </div>
-                        <div class="comparison-actions">
-                            <button class="btn btn-secondary" id="clearComparison">
-                                <i class="fas fa-trash"></i> Limpar Comparação
-                            </button>
                         </div>
                     </div>
                 </section>
@@ -194,15 +173,15 @@
                                         <i class="fas fa-external-link-alt"></i>
                                         <div>
                                             <h5>2. Indexação de Links Públicos</h5>
-                                            <p>Atuamos como um catálogo organizador de URLs publicamente disponíveis na internet. Não temos controle sobre o conteúdo hospedado nas fontes indexadas.</p>
+                                            <p>Atuamos como um catálogo organizador de URLs publicamente disponíveis na internet. Não temos controle sobre o conteúdo hospedado nos catálogos indexados.</p>
                                         </div>
                                     </div>
                                     
                                     <div class="legal-point">
                                         <i class="fas fa-handshake"></i>
                                         <div>
-                                            <h5>3. Sem Associação com Fontes</h5>
-                                            <p>Não temos parceria, afiliação ou associação comercial com nenhuma das fontes listadas. A fonte "Ecológica Verde" é unicamente uma curadoria organizada de links públicos sem fins lucrativos, e cada fonte externa opera de forma completamente independente.</p>
+                                            <h5>3. Sem Associação com os Catálogos</h5>
+                                            <p>Não temos parceria, afiliação ou associação comercial com nenhum dos catálogos listados. O catálogo "Ecológica Verde" é unicamente uma curadoria organizada de links públicos sem fins lucrativos, e cada catálogo externo opera de forma completamente independente.</p>
                                         </div>
                                     </div>
                                     
@@ -227,7 +206,7 @@
                                     <i class="fas fa-exclamation-triangle"></i>
                                     <div>
                                         <h5>Aviso Importante</h5>
-                                        <p>Este projeto é mantido sem fins lucrativos e tem como objetivo facilitar o acesso a informações já disponíveis publicamente. O uso das fontes listadas é de inteira responsabilidade do usuário final.</p>
+                                        <p>Este projeto é mantido sem fins lucrativos e tem como objetivo facilitar o acesso a informações já disponíveis publicamente. O uso dos catálogos listados é de inteira responsabilidade do usuário final.</p>
                                     </div>
                                 </div>
                                 
@@ -247,6 +226,14 @@
             <div class="sidebar-content">
                 <div class="sidebar-header">
                     <h3 class="filters-title">Filtros</h3>
+                </div>
+                
+                <!-- Barra de Pesquisa Adicionada -->
+                <div class="search-container">
+                    <input type="text" 
+                           class="search-input" 
+                           id="searchInput" 
+                           placeholder="Pesquisar catálogo...">
                 </div>
                 
                 <div class="filters-content">
@@ -307,33 +294,15 @@
                             </button>
                             <button class="filter-option" data-status="trusted">
                                 <span class="option-bullet"></span>
-                                <span class="option-text">Confiáveis</span>
+                                <span class="option-text">Confiável</span>
                             </button>
                             <button class="filter-option" data-status="verified">
                                 <span class="option-bullet"></span>
-                                <span class="option-text">Verificadas e Seguras</span>
+                                <span class="option-text">Seguro para Uso</span>
                             </button>
                             <button class="filter-option" data-status="risk">
                                 <span class="option-bullet"></span>
                                 <span class="option-text">Com Risco</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-section">
-                        <h4 class="filter-section-title">Recomendação</h4>
-                        <div class="filter-options">
-                            <button class="filter-option active" data-stars="all">
-                                <span class="option-bullet"></span>
-                                <span class="option-text">Todas</span>
-                            </button>
-                            <button class="filter-option" data-stars="5">
-                                <span class="option-bullet"></span>
-                                <span class="option-text">5 estrelas</span>
-                            </button>
-                            <button class="filter-option" data-stars="4">
-                                <span class="option-bullet"></span>
-                                <span class="option-text">4 estrelas</span>
                             </button>
                         </div>
                     </div>
