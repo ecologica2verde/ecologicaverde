@@ -1004,13 +1004,6 @@ body {
     color: #4caf50;
 }
 
-.dmca-text h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 16px;
-}
-
 .dmca-text p {
     font-size: 13px;
     color: #b0b0b0;
@@ -1082,29 +1075,6 @@ body {
 .notice-box p {
     color: #e0e0e0;
     margin: 0;
-}
-
-.contact-dmca {
-    padding: 20px;
-    background: rgba(76, 175, 80, 0.05);
-    border: 1px solid rgba(76, 175, 80, 0.1);
-    border-radius: 8px;
-    margin-top: 24px;
-}
-
-.contact-dmca h5 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #4caf50;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.contact-dmca p {
-    margin: 0;
-    color: #b0b0b0;
 }
 
 /* ===== ANIMATIONS ===== */

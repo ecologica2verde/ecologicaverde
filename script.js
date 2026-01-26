@@ -2,7 +2,7 @@
 const CONFIG = {
     statusLabels: {
         'trusted': { label: 'Confiável', class: 'status-trusted', icon: 'fa-shield-alt' },
-        'verified': { label: 'Seguro para Uso', class: 'status-verified', icon: 'fa-check-circle' },
+        'verified': { label: 'Seguro para Usar', class: 'status-verified', icon: 'fa-check-circle' },
         'risk': { label: 'Com Risco', class: 'status-risk', icon: 'fa-exclamation-triangle' }
     },
     
