@@ -565,6 +565,7 @@ body {
     border-top: 1px solid #1a1a1a;
     position: relative;
     z-index: 1;
+    gap: 16px;
 }
 
 .source-status {
@@ -597,6 +598,22 @@ body {
 .status-risk {
     background: rgba(244, 67, 54, 0.1);
     color: #f44336;
+}
+
+/* Games Count */
+.games-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #888888;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.games-count i {
+    font-size: 11px;
+    color: #4caf50;
 }
 
 /* Stars */
@@ -1002,6 +1019,7 @@ body {
 /* ===== DMCA CONTENT ===== */
 .dmca-content {
     max-width: 100%;
+    margin-bottom: 40px;
 }
 
 .dmca-card {

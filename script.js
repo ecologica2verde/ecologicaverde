@@ -491,8 +491,6 @@ function renderSources() {
                             }
                             <span class="divider">|</span>
                             <a href="${source.safetyLink}" class="link-text" target="_blank">URL Safely</a>
-                            <span class="divider">|</span>
-                            <span>${source.gameCount || 0}</span>
                         </div>
                     </div>
                 </div>
@@ -531,6 +529,10 @@ function renderSources() {
                         <i class="fas ${CONFIG.statusLabels[source.status]?.icon || 'fa-shield-alt'}"></i>
                         ${CONFIG.statusLabels[source.status]?.label || 'Confiável'}
                     </span>
+                </div>
+                <div class="games-count">
+                    <i class="fas fa-gamepad"></i>
+                    <span>${source.gameCount || 0} Jogos</span>
                 </div>
                 <div class="stars">
                     ${getStarsHTML(source.stars)}
