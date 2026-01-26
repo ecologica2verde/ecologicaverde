@@ -6,18 +6,24 @@
     <title>Ecológica Verde | Indexador de Links Públicos</title>
     <meta name="description" content="Indexador sem fins lucrativos de link públicos com curadoria especializada">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logos/logo.png">
 </head>
 <body>
+    <!-- Main Layout -->
     <div class="app-container">
+        <!-- Left Sidebar -->
         <aside class="sidebar left-sidebar">
             <div class="sidebar-content">
                 <div class="sidebar-header">
@@ -89,8 +95,10 @@
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
             <div class="content-wrapper">
+                <!-- Sources Section -->
                 <section class="content-section active" id="sources-section">
                     <div class="content-header">
                         <h2 class="content-title">Catálogos Disponíveis</h2>
@@ -100,6 +108,7 @@
                     </div>
                     
                     <div class="sources-grid" id="sourcesGrid">
+                        <!-- Sources loaded by JavaScript -->
                         <div class="loading-state">
                             <div class="loading-spinner"></div>
                             <p>Carregando catálogos...</p>
@@ -107,6 +116,7 @@
                     </div>
                 </section>
 
+                <!-- Guides Section -->
                 <section class="content-section" id="guides-section">
                     <div class="content-header">
                         <h2 class="content-title">Guias Disponíveis</h2>
@@ -116,9 +126,11 @@
                     </div>
                     
                     <div class="sources-grid" id="guidesGrid">
+                        <!-- Guides loaded by JavaScript -->
                     </div>
                 </section>
 
+                <!-- Utilities Section -->
                 <section class="content-section" id="utilities-section">
                     <div class="content-header">
                         <h2 class="content-title">Utilitários Disponíveis</h2>
@@ -128,9 +140,11 @@
                     </div>
                     
                     <div class="sources-grid" id="utilitiesGrid">
+                        <!-- Utilities loaded by JavaScript -->
                     </div>
                 </section>
 
+                <!-- DMCA Section -->
                 <section class="content-section" id="dmca-section">
                     <div class="content-header">
                         <h2 class="content-title">DMCA & Direitos Autorais</h2>
@@ -209,9 +223,12 @@
             </div>
         </main>
 
+        <!-- Right Sidebar - Filters -->
         <aside class="sidebar right-sidebar filters-sidebar" id="filtersSidebar">
             <div class="sidebar-content">
+                <!-- Título "Filtros" removido conforme solicitado -->
                 
+                <!-- Barra de Pesquisa Adicionada -->
                 <div class="search-container">
                     <input type="text" 
                            class="search-input" 
@@ -301,7 +318,7 @@
         </aside>
     </div>
 
-    <script src="background.js"></script>
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>

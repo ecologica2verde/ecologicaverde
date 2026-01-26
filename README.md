@@ -1,85 +1,51 @@
-# 🌿 Ecológica Verde - Indexador de Links Públicos
+# 🌿 Ecológica Verde - Biblioteca Virtual de Fontes
 
-Um projeto **open-source** e **sem fins lucrativos** que atua como indexador de links públicos com curadoria especializada.
+Interface moderna e profissional para gerenciamento de fontes de jogos.
 
-![Ecológica Verde](assets/logos/logo.png)
+## 🎨 Design System
 
-## 🎯 Sobre o Projeto
+- **Cores:** Verde escuro (#1a5c36) + Verde padrão (#4caf50)
+- **Fundo:** Preto opaco (#0a0a0a) com padrão SVG elegante
+- **Tipografia:** Inter + JetBrains Mono
+- **Layout:** Grid responsivo com sidebar de filtros
 
-**Ecológica Verde** é uma aplicação web moderna que organiza e cataloga links públicos disponíveis na internet, fornecendo uma interface intuitiva para navegação e filtragem de conteúdos.
+## 🚀 Funcionalidades
 
-### 📋 Funcionalidades Principais
+- ✅ **Interface moderna** com design limpo e profissional
+- ✅ **Filtros avançados** na sidebar direita
+- ✅ **Sistema de recomendação** por estrelas (1-5)
+- ✅ **Busca em tempo real** com debounce
+- ✅ **Responsividade completa** para todos dispositivos
+- ✅ **Integração futura** com Cloudflare Pages
 
-- **📚 Catálogos Organizados**: Indexação dos catálogos
-- **🔍 Sistema de Filtros**: Filtragem por tipo, status e recomendações
-- **📖 Guias Especializados**: 9 guias detalhados para instalação e configuração
-- **🛠️ Utilitários Úteis**: 8 ferramentas essenciais para usuários
-- **⚖️ DMCA & Legal**: Informações claras sobre direitos autorais
+## 📁 Fontes Suportadas
 
-## 🚀 Tecnologias Utilizadas
+1. **FitGirl Repacks** ⭐⭐⭐⭐⭐ (FR)
+2. **DODI Repacks** ⭐⭐⭐⭐ (DR)
+3. **ByXATAB** ⭐⭐⭐⭐⭐ (XATAB)
+4. **OnlineFixMe** ⭐⭐⭐⭐⭐ (OFME)
+5. **Free PC GOG Games** ⭐⭐⭐⭐ (FPGG)
+6. **Ecológica Verde** ⭐⭐⭐⭐ (EV)
 
-```
-Frontend:
-├── HTML5
-├── CSS3 (Flexbox, Grid, Custom Properties)
-├── JavaScript (ES6+)
-├── Google Fonts (Inter)
-└── Font Awesome Icons
-```
+## 🛠️ Stack Tecnológico
 
-## 📁 Estrutura do Projeto
+- **HTML5** - Semântica moderna
+- **CSS3** - Custom properties, Grid, Flexbox
+- **JavaScript** - ES6+, módulos, debounce
+- **Font Awesome** - Ícones vetoriais
+- **Google Fonts** - Tipografia premium
 
-```
-ecologica-verde/
-├── index.html          
-├── style.css          
-├── script.js          
-├── sources.json       
-├── manifest.json      
-├── README.md          
-└── assets/
-    ├── logos/         
-    └── patterns/      
-```
+## 🚀 Deploy no Github Pages
 
-## 🔧 Como Executar
+```bash
+# 1. Clone o repositório
+git clone https://github.com/seuusuario/ecologica-verde.git
 
-1. **Clone o repositório** (ou baixe os arquivos)
-2. **Abra o `index.html`** em um navegador moderno
-3. **Pronto!** A aplicação está funcionando localmente
+# 2. Faça push para seu repositório
+cd ecologica-verde
+git add .
+git commit -m "Initial commit"
+git push origin main
 
-```
-# Não requer servidor ou instalação adicional
-# Basta abrir o arquivo HTML
-```
-
-## 🎨 Design & Interface
-
-- **Paleta de Cores**: Verde (#4caf50) sobre fundo escuro (#0a0a0a)
-- **Layout**: 3-colunas responsivo
-- **Tipografia**: Inter (300-700 weights)
-- **Animações**: Transições suaves e efeitos hover
-
-## 📊 Características Técnicas
-
-- **Performance**: Carregamento otimizado de dados via JSON
-- **Responsivo**: Design adaptável para diferentes telas
-- **Acessibilidade**: Navegação por teclado e contraste adequado
-- **Manutenção**: Código modular e bem estruturado
-
-## ⚠️ Aviso Legal
-
-> **IMPORTANTE**: Este projeto atua exclusivamente como **indexador de links públicos**. Não hospedamos, armazenamos ou distribuímos qualquer conteúdo protegido por direitos autorais. Todo conteúdo referenciado está localizado em servidores de terceiros.
-
-### 📝 DMCA Compliance
-- Respeitamos o Digital Millennium Copyright Act (DMCA)
-- Links podem ser removidos mediante solicitação
-- Suporte à compra legal de conteúdo
-
-## 📄 Licença
-
-Este projeto é mantido **sem fins lucrativos** para fins educacionais e de organização de informações publicamente disponíveis.
-
----
-
-**Desenvolvido com ♻️ pela Ecológica Verde**
+# 3. Ative Github Pages
+# Settings → Pages → Source: main branch → Save
