@@ -1,0 +1,67 @@
+// background.js - Sistema de plano de fundo com textura
+document.addEventListener('DOMContentLoaded', function() {
+    const svgPattern = `data:image/svg+xml;base64,${btoa(`
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1a5c36" stop-opacity="0.05" />
+                    <stop offset="50%" stop-color="#0d3b1f" stop-opacity="0.02" />
+                    <stop offset="100%" stop-color="#1a5c36" stop-opacity="0.05" />
+                </linearGradient>
+                
+                <pattern id="gridPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 0 20 L 80 20" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    <path d="M 0 40 L 80 40" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    <path d="M 0 60 L 80 60" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    <path d="M 20 0 L 20 80" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    <path d="M 40 0 L 40 80" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    <path d="M 60 0 L 60 80" stroke="rgba(26, 92, 54, 0.08)" stroke-width="0.5" fill="none"/>
+                    
+                    <circle cx="20" cy="20" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="40" cy="20" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="60" cy="20" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="20" cy="40" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="40" cy="40" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="60" cy="40" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="20" cy="60" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="40" cy="60" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                    <circle cx="60" cy="60" r="0.8" fill="rgba(26, 92, 54, 0.12)"/>
+                </pattern>
+                
+                <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="1" fill="rgba(26, 92, 54, 0.06)"/>
+                </pattern>
+            </defs>
+            
+            <rect width="100%" height="100%" fill="#0a0a0a"/>
+            <rect width="100%" height="100%" fill="url(#gridGradient)" opacity="0.3"/>
+            <rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.3"/>
+            <rect width="100%" height="100%" fill="url(#dotPattern)" opacity="0.1"/>
+            
+            <circle cx="85%" cy="15%" r="300" fill="rgba(26, 92, 54, 0.03)" filter="blur(60px)"/>
+            <circle cx="15%" cy="85%" r="200" fill="rgba(26, 92, 54, 0.02)" filter="blur(40px)"/>
+            
+            <g opacity="0.04">
+                <line x1="0" y1="0" x2="100%" y2="100%" stroke="#1a5c36" stroke-width="1"/>
+                <line x1="100%" y1="0" x2="0" y2="100%" stroke="#1a5c36" stroke-width="1"/>
+                <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#1a5c36" stroke-width="0.5"/>
+                <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#1a5c36" stroke-width="0.5"/>
+            </g>
+        </svg>
+    `)}`;
+
+    const backgroundDiv = document.createElement('div');
+    backgroundDiv.id = 'background-pattern';
+    backgroundDiv.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('${svgPattern}') center/cover no-repeat;
+        z-index: -1;
+        pointer-events: none;
+    `;
+    
+    document.body.appendChild(backgroundDiv);
+});
