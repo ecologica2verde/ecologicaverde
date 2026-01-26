@@ -12,13 +12,13 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Releases em <b>[Game folder]</b>: baixar e jogar",
+        "Releases em <b>[Game folder]</b>, sem instalador",
         "Repacks com compressão baixa/moderada",
         "Catálogo extenso de jogos"
       ],
       "cons": [
-        "Configuração do idioma pode ser complicada",
         "Jogos dublados as vezes só com legendas PT-BR",
+        "Configuração do idioma pode ser complicada",
         "Foco no idioma Russo e Inglês"
       ]
     },
@@ -35,8 +35,8 @@
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Uso moderado da CPU durante instalação",
-        "Instalação mais rápida do que a FitGirl",
-        "Compressão dos arquivos moderada"
+        "Suporte a vários idiomas dos jogos",
+        "Repacks com compressão moderada"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
@@ -56,9 +56,9 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos incluídos por pedidos da comunidade",
+        "Jogos incluídos pela comunidade",
         "Curadoria manual (sem web scraping)",
-        "Fontes verificadas e seguras"
+        "Fontes verificadas e seguras para usar"
       ],
       "cons": [
         "Alguns jogos com pouquíssimos seeders",
@@ -80,7 +80,7 @@
       "pros": [
         "<b>THE Repacker</b>: referência entre os repackers",
         "Verifica integridade dos arquivos instalados",
-        "Compressão dos arquivos excelente"
+        "Compressão dos arquivos alta"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
@@ -122,12 +122,12 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Funciona em Servidores Oficiais", "Tamanho do Arquivo", "Senha", "URL", "Data de Postagem"],
       "pros": [
-        "Pode se jogar em servidores oficiais",
+        "Pode-se jogar em servidores oficiais",
         "Atualizações são frequentes",
         "Suporte a multiplayer online"
       ],
       "cons": [
-        "Há guias dos jogos fechados permanentemente",
+        "Alguns jogos perdem suporte permanentemente",
         "Necessário Steam ou da Epic Games aberto",
         "Foco do idioma em Russo"
       ]
