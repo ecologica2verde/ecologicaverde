@@ -29,12 +29,12 @@ body {
 
 .sidebar {
     width: 280px;
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border-right: 1px solid #1a1a1a;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .right-sidebar {
@@ -332,7 +332,7 @@ body {
 }
 
 .source-card {
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 24px;
@@ -342,7 +342,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .source-card::before {
@@ -441,10 +441,13 @@ body {
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.5px;
-    background: rgba(76, 175, 80, 0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
+    background: rgba(76, 175, 80, 0.15);
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    min-width: 40px;
+    text-align: center;
+    display: inline-block;
 }
 
 .card-pros-cons {
@@ -660,7 +663,7 @@ body {
 }
 
 .guide-card, .utility-card {
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 24px;
@@ -670,7 +673,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .guide-card::before, .utility-card::before {
@@ -711,7 +714,7 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateX(0);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .filters-sidebar.hidden {
@@ -884,10 +887,10 @@ body {
     justify-content: center;
     padding: 80px 40px;
     text-align: center;
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border: 1px solid #1a1a1a;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .loading-spinner {
@@ -913,10 +916,10 @@ body {
     justify-content: center;
     padding: 80px 40px;
     text-align: center;
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border: 1px solid #1a1a1a;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .no-results i {
@@ -975,12 +978,12 @@ body {
 }
 
 .dmca-card {
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(17, 17, 17, 0.98);
     border: 1px solid #1a1a1a;
     border-radius: 12px;
     padding: 32px;
     margin-bottom: 24px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
 }
 
 .dmca-card h3 {
