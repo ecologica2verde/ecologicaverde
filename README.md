@@ -18,18 +18,18 @@ Um projeto **open-source** e **sem fins lucrativos** que atua como indexador de 
 
 ## 🚀 Tecnologias Utilizadas
 
-\`\`\`bash
+```
 Frontend:
 ├── HTML5
 ├── CSS3 (Flexbox, Grid, Custom Properties)
 ├── JavaScript (ES6+)
 ├── Google Fonts (Inter)
 └── Font Awesome Icons
-\`\`\`
+```
 
 ## 📁 Estrutura do Projeto
 
-\`\`\`
+```
 ecologica-verde/
 ├── index.html          
 ├── style.css          
@@ -40,7 +40,7 @@ ecologica-verde/
 └── assets/
     ├── logos/         
     └── patterns/      
-\`\`\`
+```
 
 ## 🔧 Como Executar
 
@@ -48,10 +48,10 @@ ecologica-verde/
 2. **Abra o `index.html`** em um navegador moderno
 3. **Pronto!** A aplicação está funcionando localmente
 
-\`\`\`bash
+```
 # Não requer servidor ou instalação adicional
 # Basta abrir o arquivo HTML
-\`\`\`
+```
 
 ## 🎨 Design & Interface
 
