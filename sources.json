@@ -35,8 +35,8 @@
       "csvColumns": ["Nome", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Uso moderado da CPU durante instalação",
-        "Suporte a vários idiomas dos jogos",
-        "Repacks com compressão moderada"
+        "Repacks com compressão moderada",
+        "Suporte a vários idiomas dos jogos"
       ],
       "cons": [
         "Falhas na instalação por arquivos corrompidos",
@@ -56,7 +56,7 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "URL", "Data da Postagem"],
       "pros": [
-        "Jogos incluídos pela comunidade",
+        "Jogos incluídos pela Comunidade",
         "Curadoria manual (sem web scraping)",
         "Fontes verificadas e seguras para usar"
       ],
