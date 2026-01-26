@@ -12,13 +12,13 @@
       "url": "#",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
-        "Lançamentos em <b>[Game folder]</b>: baixou, jogou",
-        "Faz repacks com compressão baixa/moderada",
+        "Releases em <b>[Game folder]</b>: baixar e jogar",
+        "Repacks com compressão baixa/moderada",
         "Catálogo extenso de jogos"
       ],
       "cons": [
         "Configuração do idioma pode ser complicada",
-        "Jogos dublados só com legendas PT-BR",
+        "Jogos dublados as vezes só com legendas PT-BR",
         "Foco no idioma Russo e Inglês"
       ]
     },
